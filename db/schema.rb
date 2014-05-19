@@ -39,7 +39,7 @@ ActiveRecord::Schema.define(version: 20140519000048) do
     t.string   "vineyard",    null: false
     t.string   "description"
     t.float    "price"
-    t.date     "year",        null: false
+    t.integer  "vintage"
     t.string   "category"
     t.string   "grape"
     t.string   "occasion"

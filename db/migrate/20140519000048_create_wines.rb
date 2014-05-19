@@ -5,7 +5,7 @@ class CreateWines < ActiveRecord::Migration
       t.string :vineyard, null: false
       t.string :description
       t.float :price
-      t.date :year, null: false
+      t.integer :vintage
       t.string :category
       t.string :grape
       t.string :occasion
