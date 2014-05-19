@@ -1,8 +1,8 @@
 class CreateWines < ActiveRecord::Migration
   def change
     create_table :wines do |t|
-      t.string :name, null: false
-      t.string :vineyard, null: false
+      t.string :name
+      t.string :vineyard
       t.integer :vintage
       t.string :description
       t.float :price
@@ -12,6 +12,7 @@ class CreateWines < ActiveRecord::Migration
       t.integer :on_hand
       t.integer :consumption
       t.text :review
+      t.integer :product_key, null: false, index: true
 
       t.timestamps
     end

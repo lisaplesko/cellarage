@@ -4,14 +4,8 @@
 
 <% @wines.each do |wine| %>
 
-<h3><%= wine.vintage%> <%= link_to wine.name, wine %> -
-<%= wine.vineyard %></h3>
+  <%= link_to wine.product_key, wine %>
 
-<p>"<%= wine.description %>"</p>
-<p>Grape varietal: <%= "#{wine.grape} (#{wine.category})"%>
-
-<p><%= number_to_currency(wine.price) %></p>
-<p>Occasion: <%= wine.occasion %>
 
 <% end %>
 

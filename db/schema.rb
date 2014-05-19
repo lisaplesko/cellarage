@@ -45,8 +45,8 @@ ActiveRecord::Schema.define(version: 20140519162243) do
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
 
   create_table "wines", force: true do |t|
-    t.string   "name",        null: false
-    t.string   "vineyard",    null: false
+    t.string   "name"
+    t.string   "vineyard"
     t.integer  "vintage"
     t.string   "description"
     t.float    "price"
@@ -56,6 +56,7 @@ ActiveRecord::Schema.define(version: 20140519162243) do
     t.integer  "on_hand"
     t.integer  "consumption"
     t.text     "review"
+    t.integer  "product_key", null: false
     t.datetime "created_at"
     t.datetime "updated_at"
   end
