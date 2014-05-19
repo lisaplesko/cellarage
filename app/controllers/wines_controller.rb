@@ -8,6 +8,11 @@ class WinesController < ApplicationController
     @wine = Wine.new
   end
 
+  def show
+    @wine = Wine.find(params[:id])
+    @review = @wine.reviews.new
+  end
+
   def create
     # @wine = current_user.wines.new(article_params)
     @wine = Wine.new(wine_params)
@@ -25,8 +30,5 @@ class WinesController < ApplicationController
   def wine_params
     params.require(:wine).permit(:name, :vineyard, :vintage, :category, :description, :grape, :price, :occasion)
   end
-
-
-
 
 end

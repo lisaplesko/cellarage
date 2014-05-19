@@ -1,0 +1,21 @@
+<h1><%= @wine.name %></h1>
+<%= link_to nil, @wine.vineyard %>
+
+<br>
+<br>
+<br>
+
+<p>Please leave a review:</p>
+
+<%= form_for [@wine, @review] do |f| %>
+  <%= f.text_area :description  %>
+  <%= f.submit 'Review' %>
+<% end %>
+
+<% @wine.reviews.each do |review| %>
+  <%= review.description %>
+<% end %>
+
+
+
+

@@ -11,10 +11,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140519000048) do
+ActiveRecord::Schema.define(version: 20140519162243) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "reviews", force: true do |t|
+    t.integer  "wine_id"
+    t.integer  "rating"
+    t.text     "description"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "reviews", ["wine_id"], name: "index_reviews_on_wine_id", using: :btree
 
   create_table "users", force: true do |t|
     t.string   "email",                  default: "", null: false
@@ -37,12 +47,15 @@ ActiveRecord::Schema.define(version: 20140519000048) do
   create_table "wines", force: true do |t|
     t.string   "name",        null: false
     t.string   "vineyard",    null: false
+    t.integer  "vintage"
     t.string   "description"
     t.float    "price"
-    t.integer  "vintage"
     t.string   "category"
     t.string   "grape"
     t.string   "occasion"
+    t.integer  "on_hand"
+    t.integer  "consumption"
+    t.text     "review"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

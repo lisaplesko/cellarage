@@ -4,7 +4,7 @@
 
 <% @wines.each do |wine| %>
 
-<h3><%= wine.vintage%> <%= wine.name %> -
+<h3><%= wine.vintage%> <%= link_to wine.name, wine %> -
 <%= wine.vineyard %></h3>
 
 <p>"<%= wine.description %>"</p>
