@@ -1,7 +1,8 @@
 Rails.application.routes.draw do
 
   devise_for :users
-root 'wines#index'
+  root 'wines#index'
+  resources :wines
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

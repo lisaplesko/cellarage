@@ -1,0 +1,46 @@
+<h1>Add a new wine</h1>
+
+<%= form_for @wine do |f| %>
+
+
+  <%= f.label :name %>
+  <%= f.text_field :name %>
+
+
+
+  <%= f.label :vineyard %>
+  <%= f.text_field :vineyard %>
+
+  <%= f.label :vintage %>
+  <%= f.text_field :vintage %>
+
+  <br>
+
+  <%= f.label :description %>
+  <%= f.text_field :description %>
+
+  <br>
+
+  <%= f.label :price %>
+  <%= f.text_field :price %>
+
+  <br>
+
+  <%= f.label :category %>
+  <%= f.text_field :category %>
+
+  <br>
+
+  <%= f.label :grape %>
+  <%= f.text_field :grape %>
+
+  <br>
+
+  <%= f.label :occasion %>
+  <%= f.text_field :occasion %>
+
+  <br>
+
+  <%= f.submit 'Submit' %>
+
+<% end %>

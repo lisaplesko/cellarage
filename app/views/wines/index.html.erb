@@ -1,5 +1,7 @@
 <h1>Wine cellar inventory</h1>
 
+<%= link_to "+", new_wine_path %>
+
 <% @wines.each do |wine| %>
 
 <h3><%= wine.vintage%> <%= wine.name %> -
