@@ -3,6 +3,8 @@
 <%= form_for @wine do |f| %>
 
 
+  <%= select_tag(:vineyard_id, options_for_select(@vineyard_options)) %>
+
   <%= f.label :product_key %>
   <%= f.text_field :product_key %>
 

@@ -6,6 +6,7 @@ class WinesController < ApplicationController
 
   def new
     @wine = Wine.new
+    @vineyard_options = Vineyard.all.map{|v| [v.name]}
   end
 
   def show
@@ -14,13 +15,11 @@ class WinesController < ApplicationController
     @response = Wine.response(@wine[:product_key])
   end
 
-
   def update
     @wine = Wine.find(params[:id])
     @wine[:on_hand].increment!(1)
     redirect_to @wine
   end
-
 
   def create
     # @wine = current_user.wines.new(article_params)
@@ -37,7 +36,7 @@ class WinesController < ApplicationController
   private
 
   def wine_params
-    params.require(:wine).permit(:product_key, :name, :vineyard, :vintage, :category, :description, :grape, :price, :occasion)
+    params.require(:wine).permit(:product_key, :name, :vintage, :category, :description, :grape, :price, :occasion)
   end
 
 end

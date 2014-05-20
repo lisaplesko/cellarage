@@ -1,0 +1,4 @@
+#vineyard
+  #vineyard_from_list
+    = f.association :vineyard, :collection => Vineyard.all(:order => 'name'), :prompt => 'Choose an existing vineyard'
+  = link_to_add_association 'add a new vineyard', f, :vineyard

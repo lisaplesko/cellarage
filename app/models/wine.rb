@@ -1,5 +1,7 @@
 class Wine < ActiveRecord::Base
   has_many :reviews
+  belongs_to :vineyard
+  accepts_nested_attributes_for :vineyard, :reject_if => :all_blank
 
 
 

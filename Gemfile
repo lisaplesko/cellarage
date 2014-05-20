@@ -15,7 +15,6 @@ gem 'sdoc', '~> 0.4.0',          group: :doc
 gem 'spring',        group: :development
 gem 'devise'
 gem 'dotenv-rails', :groups => [:development, :test]
-gem 'wine_dot_com_api_request', '~> 0.1.0'
 gem 'httparty', '~> 0.13.1'
 
 
