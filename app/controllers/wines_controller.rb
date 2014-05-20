@@ -6,6 +6,7 @@ class WinesController < ApplicationController
       @wines = current_user.wines
     else
       @wines = Wine.all
+
     end
   end
 
@@ -43,7 +44,7 @@ class WinesController < ApplicationController
 
   def create
     # @wine = current_user.wines.new(article_params)
-    @wine = Wine.new(wine_params)
+    @wine = current_user.wines.new(wine_params)
     if @wine.save
       flash[:notice] = 'Wine successfully added to collection!'
       redirect_to root_path

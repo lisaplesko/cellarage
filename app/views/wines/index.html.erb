@@ -1,5 +1,6 @@
 <h1>Wine cellar inventory</h1>
 
+
 <%= link_to "+", new_wine_path %><br><br>
 
 
@@ -14,7 +15,13 @@
 
 <% else %>
 
-  Members have a total of <%= @wines.count %> wines in the cellar!
+
+
+  Members have a total of <%= @wines.map(&:on_hand).reduce(&:+) %> wines in the cellar!
+
+  <br>
+
+  (Members have consumed <%= @wines.map(&:consumption).reduce(&:+) %> wines, though!)
 
 <% end %>
 
