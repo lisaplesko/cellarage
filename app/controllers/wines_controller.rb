@@ -6,7 +6,7 @@ class WinesController < ApplicationController
 
   def new
     @wine = Wine.new
-    @vineyard_options = Vineyard.all.map{ |vineyard| [vineyard.name] }
+    @vineyard_options = Vineyard.all.map{ |vineyard| [vineyard.name, vineyard.id] }
     @vineyard = Vineyard.new
   end
 
@@ -37,7 +37,7 @@ class WinesController < ApplicationController
   private
 
   def wine_params
-    params.require(:wine).permit(:product_key, :name, :vintage, :category, :description, :grape, :price, :occasion)
+    params.require(:wine).permit(:product_key, :name, :vintage, :category, :description, :grape, :price, :occasion, :vineyard_id)
   end
 
 end

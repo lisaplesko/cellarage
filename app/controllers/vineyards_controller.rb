@@ -1,4 +1,4 @@
-class WinesController < ApplicationController
+class VineyardsController < ApplicationController
 
   # def new
   #   @vineyard = Vineyard.new
@@ -6,6 +6,7 @@ class WinesController < ApplicationController
 
   def create
     @vineyard = Vineyard.create(vineyard_params)
+    redirect_to request.referer
   end
 
 
