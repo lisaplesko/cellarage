@@ -16,6 +16,7 @@ gem 'spring',        group: :development
 gem 'devise'
 gem 'dotenv-rails', :groups => [:development, :test]
 gem 'httparty', '~> 0.13.1'
+gem 'rails_12factor', group: :production
 
 
 group :development, :test do
