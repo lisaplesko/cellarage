@@ -6,7 +6,7 @@ class WinesController < ApplicationController
 
   def new
     @wine = Wine.new
-    @vineyard_options = Vineyard.all.map{|vineyard| [vineyard.name]}
+    @vineyard_options = Vineyard.all.map{ |vineyard| [vineyard.name] }
     @vineyard = Vineyard.new
   end
 
@@ -17,9 +17,9 @@ class WinesController < ApplicationController
   end
 
   def update
-    @wine = Wine.find(params[:id])
-    @wine[:on_hand].increment!(1)
-    redirect_to @wine
+    # @wine = Wine.find(params[:id])
+    # @wine[:on_hand].increment!(1)
+    # redirect_to @wine
   end
 
   def create

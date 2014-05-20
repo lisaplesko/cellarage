@@ -4,7 +4,7 @@
 
 <% @wines.each do |wine| %>
 
-  <%= wine.vintage %> - <%= link_to wine.name, wine %> by: <%= wine.vineyard %> | <b>Qty:</b> <%= wine.on_hand %> <br>
+  <%= wine.vintage %> - <%= link_to wine.name, wine %> by: <%= wine.vineyard.name %> | <b>Qty:</b> <%= wine.on_hand %> <br>
 
 <% end %>
 
