@@ -2,12 +2,19 @@
 
 <%= link_to "+", new_wine_path %><br><br>
 
-<% @wines.each do |wine| %>
 
-  <%= wine.vintage %> -
-  <%= link_to wine.name, wine %>
-  by: <%= wine.vineyard.name %>  |
-  <b>Qty:</b> <%= wine.on_hand %> <br>
+<% if user_signed_in? %>
+
+  <% @wines.each do |wine| %>
+    <%= wine.vintage %> -
+    <%= link_to wine.name, wine %>
+    by: <%= wine.vineyard.name %>  |
+    <b>Qty:</b> <%= wine.on_hand %> <br>
+  <% end %>
+
+<% else %>
+
+  Members have a total of <%= @wines.count %> wines in the cellar!
 
 <% end %>
 

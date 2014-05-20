@@ -1,3 +1,5 @@
+lisa = User.create!(email: 'plesko.l@gmail.com', password: 'password')
+
 v1 = Vineyard.create!(name: 'Chateau Ste. Michelle',
                       address: '14111 NE 145th St, Woodinville, WA 98072',
                       country: 'USA')
@@ -8,7 +10,7 @@ v2 = Vineyard.create!(name: 'Sokol Blosser',
 
 
 
-v1.wines.create!(name: 'Eroica Riesling',
+lisa.wines << v1.wines.create!(name: 'Eroica Riesling',
                     vintage: 2011,
                     description: 'Crisp white',
                     price: 19.99,
@@ -18,7 +20,7 @@ v1.wines.create!(name: 'Eroica Riesling',
                     on_hand: 3,
                     consumption: 1 )
 
-v2.wines.create!(name: 'Pinot Noir Dundee Hills',
+lisa.wines << v2.wines.create!(name: 'Pinot Noir Dundee Hills',
                     vintage: 2009,
                     description: 'Nice',
                     price: 39.99,
@@ -27,6 +29,8 @@ v2.wines.create!(name: 'Pinot Noir Dundee Hills',
                     occasion: 'nice',
                     on_hand: 2,
                     consumption: 3 )
+
+
 
 
 

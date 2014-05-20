@@ -3,7 +3,11 @@ class WinesController < ApplicationController
 
 
   def index
-    @wines = Wine.all
+    if user_signed_in?
+      @wines = current_user.wines
+    else
+      @wines = Wine.all
+    end
   end
 
   def new
