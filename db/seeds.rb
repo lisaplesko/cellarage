@@ -36,22 +36,3 @@ lisa.wines << v2.wines.create!(name: 'Pinot Noir Dundee Hills',
                     consumption: 3 )
 
 
-
-
-
-
-# create_table "wines", force: true do |t|
-#     t.string   "name"
-#     t.integer  "vineyard_id"
-#     t.integer  "vintage"
-#     t.string   "description"
-#     t.float    "price"
-#     t.string   "category"
-#     t.string   "grape"
-#     t.string   "occasion"
-#     t.integer  "on_hand"
-#     t.integer  "consumption"
-#     t.text     "review"
-#     t.integer  "product_key"
-#     t.datetime "created_at"
-#     t.datetime "updated_at"
