@@ -10,13 +10,8 @@ Occasion: <%= @wine.occasion %><br>
 
 
 On-hand: <%= @wine.on_hand %> | Consumption: <%= @wine.consumption %><br>
-<%= button_to  "Drink" %>
-<%= button_to  "Add" %>
-
-
-
-
-
+<%= button_to  "Drink", downcount_wine_path %>
+<%= button_to  "Add", upcount_wine_path %>
 
 
 

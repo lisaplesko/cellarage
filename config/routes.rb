@@ -4,6 +4,10 @@ Rails.application.routes.draw do
   root 'wines#index'
   resources :wines do
     resources :reviews
+    member do
+      post :upcount
+      post :downcount
+    end
   end
   resources :vineyards
 

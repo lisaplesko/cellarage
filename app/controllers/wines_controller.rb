@@ -22,10 +22,24 @@ class WinesController < ApplicationController
   end
 
   def update
-    # @wine = Wine.find(params[:id])
-    # @wine[:on_hand].increment!(1)
-    # redirect_to @wine
   end
+
+
+  def upcount
+    wine = Wine.find(params[:id])
+    wine.on_hand += 1
+    wine.save
+    redirect_to wine
+  end
+
+  def downcount
+    wine = Wine.find(params[:id])
+    wine.on_hand -= 1
+    wine.consumption += 1
+    wine.save
+    redirect_to wine
+  end
+
 
   def create
     # @wine = current_user.wines.new(article_params)
@@ -42,7 +56,7 @@ class WinesController < ApplicationController
   private
 
   def wine_params
-    params.require(:wine).permit(:name, :vineyard_id, :vintage, :description, :price, :category, :grape, :occasion, :on_hand, :consumption )
+    params.require(:wine).permit(:name, :vineyard_id, :vintage, :description, :price, :category, :grape, :occasion, :on_hand, :consumption, :region )
   end
 
 end
