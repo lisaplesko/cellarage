@@ -31,30 +31,18 @@ v2.wines.create!(name: 'Pinot Noir Dundee Hills',
 
 
 
-
-
- # def change
- #    create_table :wines do |t|
- #      t.string :name
- #      t.string :vineyard
- #      t.integer :vintage
- #      t.string :description
- #      t.float :price
- #      t.string :category
- #      t.string :grape
- #      t.string :occasion
- #      t.integer :on_hand
- #      t.integer :consumption
- #      t.text :review
- #      t.integer :product_key #, null: false, index: true
-
- #      t.timestamps
- #    end
-
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rake db:seed (or created alongside the db with db:setup).
-#
-# Examples:
-#
-#   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
-#   Mayor.create(name: 'Emanuel', city: cities.first)
+# create_table "wines", force: true do |t|
+#     t.string   "name"
+#     t.integer  "vineyard_id"
+#     t.integer  "vintage"
+#     t.string   "description"
+#     t.float    "price"
+#     t.string   "category"
+#     t.string   "grape"
+#     t.string   "occasion"
+#     t.integer  "on_hand"
+#     t.integer  "consumption"
+#     t.text     "review"
+#     t.integer  "product_key"
+#     t.datetime "created_at"
+#     t.datetime "updated_at"
