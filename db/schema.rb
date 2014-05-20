@@ -56,7 +56,7 @@ ActiveRecord::Schema.define(version: 20140519162243) do
     t.integer  "on_hand"
     t.integer  "consumption"
     t.text     "review"
-    t.integer  "product_key", null: false
+    t.integer  "product_key"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

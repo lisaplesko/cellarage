@@ -1,29 +1,42 @@
-<h1><%= @response["Products"]["List"][0]["Name"] %></h1>
+<h1><%= @wine.name %></h1>
 
-Name: <%= @response["Products"]["List"][0]["Name"] %> <br>
-Vineyard: <%=  %> <br>
-Score: <%= @response["Products"]["List"][0]["Ratings"]["HighestScore"] %> <br>
-Min Price: <%= @response["Products"]["List"][0]["PriceMin"] %> <br>
-Varietal Name: <%= @response["Products"]["List"][0]["Varietal"]["WineType"]["Name"] %> <br>
-Category: <%= @response["Products"]["List"][0]["Appellation"]["Name"] %> <br>
+Vineyard: <%= @wine.name %><br>
+Vintage: <%= @wine.vintage %><br>
+Description: <%= @wine.description %><br>
+Price: <%= @wine.price %><br>
+Category: <%= @wine.category %><br>
+Grape: <%= @wine.grape %><br>
+Occasion: <%= @wine.occasion %><br>
 
-<%= @wine.product_key %>
+
+On-hand: <%= @wine.on_hand %> | Consumption: <%= @wine.consumption %><br>
+<%= button_to  "Update" %>
 
 
-<br>
+
+
+
+
+
+
 <br>
 <br>
 
 <p>Please leave a review:</p>
 
 <%= form_for [@wine, @review] do |f| %>
+
+  <%= f.label :description  %>
   <%= f.text_area :description  %>
+
   <%= f.submit 'Review' %>
 <% end %>
 
+
 <% @wine.reviews.each do |review| %>
-  <%= review.description %>
+  <%= review.description %> <br>
 <% end %>
+
 
 
 

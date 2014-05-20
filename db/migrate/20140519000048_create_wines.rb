@@ -12,7 +12,7 @@ class CreateWines < ActiveRecord::Migration
       t.integer :on_hand
       t.integer :consumption
       t.text :review
-      t.integer :product_key, null: false, index: true
+      t.integer :product_key #, null: false, index: true
 
       t.timestamps
     end

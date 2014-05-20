@@ -1,0 +1,35 @@
+<h1><%= @response["Products"]["List"][0]["Name"] %></h1>
+
+Name: <%= @response["Products"]["List"][0]["Name"] %> <br>
+Vineyard: <%= @response["Products"]["List"][0]["Vineyard"]["Name"] %> <br>
+Score: <%= @response["Products"]["List"][0]["Ratings"]["HighestScore"] %> <br>
+Min Price: <%= @response["Products"]["List"][0]["PriceMin"] %> <br>
+Varietal Name: <%= @response["Products"]["List"][0]["Varietal"]["WineType"]["Name"] %> <br>
+Category: <%= @response["Products"]["List"][0]["Appellation"]["Name"] %> <br>
+
+<img src="<%=@response["Products"]["List"][0]["Labels"][1]["Url"]%>">
+
+<br>
+<%= @wine.product_key %>
+<br>
+
+
+
+
+<br>
+<br>
+
+<p>Please leave a review:</p>
+
+<%= form_for [@wine, @review] do |f| %>
+  <%= f.text_area :description  %>
+  <%= f.submit 'Review' %>
+<% end %>
+
+<% @wine.reviews.each do |review| %>
+  <%= review.description %>
+<% end %>
+
+
+
+

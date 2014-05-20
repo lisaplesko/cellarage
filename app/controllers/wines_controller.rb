@@ -14,6 +14,14 @@ class WinesController < ApplicationController
     @response = Wine.response(@wine[:product_key])
   end
 
+
+  def update
+    @wine = Wine.find(params[:id])
+    @wine[:on_hand].increment!(1)
+    redirect_to @wine
+  end
+
+
   def create
     # @wine = current_user.wines.new(article_params)
     @wine = Wine.new(wine_params)
