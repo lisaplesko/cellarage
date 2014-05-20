@@ -4,6 +4,34 @@ class Wine < ActiveRecord::Base
   belongs_to :user
   accepts_nested_attributes_for :vineyard, :reject_if => :all_blank
 
+  CATEGORIES = ['Red', 'White', 'Rosé', 'Sparking', 'Dessert']
+  GRAPES = ['Barolo',
+            'Blush',
+            'Bordeaux',
+            'Cabernet',
+            'Cabernet Franc',
+            'Cabernet Sauvignon',
+            'Champagne',
+            'Chardonnay',
+            'Chenin Blanc',
+            'Chianti',
+            'Gewürztraminer',
+            'Malbec',
+            'Merlot',
+            'Moscato',
+            'Other',
+            'Petit Sirah',
+            'Pinot Gris',
+            'Pinot Noir',
+            'Port',
+            'Riesling',
+            'Sangiovese',
+            'Sauvignon Blanc',
+            'Syrah/Shiraz',
+            'Tempranillo',
+            'Zinfandel']
+
+  OCCASIONS = ['Everyday', 'Nice dinner', 'Holiday']
 
 
   include HTTParty

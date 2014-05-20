@@ -44,17 +44,17 @@
   <br>
 
   <%= f.label :category %>
-  <%= f.text_field :category %>
+  <%= f.select :category, Wine::CATEGORIES, include_blank: true %>
 
   <br>
 
   <%= f.label :grape %>
-  <%= f.text_field :grape %>
+  <%= f.select :grape, Wine::GRAPES, include_blank: true %>
 
   <br>
 
   <%= f.label :occasion %>
-  <%= f.text_field :occasion %>
+  <%= f.select :occasion, Wine::OCCASIONS, include_blank: true %>
 
   <br>
 

@@ -1,3 +1,8 @@
+User.delete_all
+Vineyard.delete_all
+Wine.delete_all
+
+
 lisa = User.create!(email: 'plesko.l@gmail.com', password: 'password')
 
 v1 = Vineyard.create!(name: 'Chateau Ste. Michelle',
