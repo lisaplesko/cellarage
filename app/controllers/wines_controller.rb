@@ -1,10 +1,5 @@
 class WinesController < ApplicationController
-<<<<<<< HEAD
   before_action :authenticate_user!, except: [:index, :show]
-=======
-  before_action :authenticate_user!, except [:index, :show]
->>>>>>> 10d10a66780dbdc52cfb650883a1f864a13378f2
-
 
   def index
     if user_signed_in?
