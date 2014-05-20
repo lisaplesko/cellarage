@@ -35,10 +35,17 @@ class WinesController < ApplicationController
 
   def downcount
     wine = Wine.find(params[:id])
-    wine.on_hand -= 1
-    wine.consumption += 1
-    wine.save
-    redirect_to wine
+
+    if wine.on_hand >= 1
+      wine.on_hand -= 1
+      wine.consumption += 1
+      wine.save
+      redirect_to wine
+    else
+      flash[:notice] = "Sorry, no wine available to drink!"
+      redirect_to wine
+    end
+
   end
 
 
