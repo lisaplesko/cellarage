@@ -4,14 +4,33 @@
 
 <% if user_signed_in? %>
 
+Sort by: Category  Type   Occasion
+<br>
+
 <%= link_to "+", new_wine_path %><br><br>
 
+<h3>Current in the cellar</h3>
   <% @wines.each do |wine| %>
-    <%= wine.vintage %> -
-    <%= link_to wine.name, wine %>
-    by: <%= wine.vineyard.name %>  |
-    <b>Qty:</b> <%= wine.on_hand %> <br>
+    <% if wine.on_hand > 0 %>
+      <%= wine.vintage %> -
+      <%= link_to wine.name, wine %>
+      by: <%= wine.vineyard.name %>  |
+      <b>Qty:</b> <%= wine.on_hand %> <br>
+    <% end %>
   <% end %>
+
+  <hr>
+
+<h3>Dunzo</h3>
+  <% @wines.each do |wine| %>
+    <% if wine.on_hand <= 0 %>
+      <%= wine.vintage %> -
+      <%= link_to wine.name, wine %>
+      by: <%= wine.vineyard.name %>  |
+      <b>Consumed:</b> <%= wine.consumption %> <br>
+    <% end %>
+  <% end %>
+
 
 <% else %>
 
