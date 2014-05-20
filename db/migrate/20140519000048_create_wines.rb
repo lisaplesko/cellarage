@@ -9,8 +9,8 @@ class CreateWines < ActiveRecord::Migration
       t.string :category
       t.string :grape
       t.string :occasion
-      t.integer :on_hand, index: true
-      t.integer :consumption, index: true
+      t.integer :on_hand, index: true, default: 0
+      t.integer :consumption, index: true, default: 0
       t.text :review
       t.integer :product_key #, null: false, index: true
       t.string :region, index: true

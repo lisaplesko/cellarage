@@ -50,8 +50,10 @@ ActiveRecord::Schema.define(version: 20140520194527) do
     t.string "country"
   end
 
+  add_index "vineyards", ["name"], name: "index_vineyards_on_name", using: :btree
+
   create_table "wines", force: true do |t|
-    t.string   "name",        null: false
+    t.string   "name",                    null: false
     t.integer  "vineyard_id"
     t.integer  "vintage"
     t.string   "description"
@@ -59,8 +61,8 @@ ActiveRecord::Schema.define(version: 20140520194527) do
     t.string   "category"
     t.string   "grape"
     t.string   "occasion"
-    t.integer  "on_hand"
-    t.integer  "consumption"
+    t.integer  "on_hand",     default: 0
+    t.integer  "consumption", default: 0
     t.text     "review"
     t.integer  "product_key"
     t.string   "region"

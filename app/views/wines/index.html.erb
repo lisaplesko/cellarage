@@ -1,10 +1,10 @@
 <h1>Wine cellar inventory</h1>
 
 
-<%= link_to "+", new_wine_path %><br><br>
-
 
 <% if user_signed_in? %>
+
+<%= link_to "+", new_wine_path %><br><br>
 
   <% @wines.each do |wine| %>
     <%= wine.vintage %> -

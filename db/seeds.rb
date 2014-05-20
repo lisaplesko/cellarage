@@ -19,20 +19,18 @@ lisa.wines << v1.wines.create!(name: 'Eroica Riesling',
                     vintage: 2011,
                     description: 'Crisp white',
                     price: 19.99,
-                    category: 'white',
-                    grape: 'riesling',
+                    category: 'White',
+                    grape: 'Riesling',
                     occasion: 'everyday',
-                    on_hand: 3,
-                    consumption: 1 )
+                    on_hand: 3 )
 
 lisa.wines << v2.wines.create!(name: 'Pinot Noir Dundee Hills',
                     vintage: 2009,
                     description: 'Nice',
                     price: 39.99,
-                    category: 'red',
-                    grape: 'pinot noir',
+                    category: 'Red',
+                    grape: 'Pinot Noir',
                     occasion: 'nice',
-                    on_hand: 2,
-                    consumption: 3 )
+                    on_hand: 2 )
 
 
