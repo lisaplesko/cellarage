@@ -13,7 +13,7 @@ class WinesController < ApplicationController
   def show
     @wine = Wine.find(params[:id])
     @review = @wine.reviews.new
-    @response = Wine.response(@wine[:product_key])
+    # @response = Wine.response(@wine[:product_key])
   end
 
   def update
@@ -37,7 +37,7 @@ class WinesController < ApplicationController
   private
 
   def wine_params
-    params.require(:wine).permit(:product_key, :name, :vintage, :category, :description, :grape, :price, :occasion, :vineyard_id, :on_hand)
+    params.require(:wine).permit(:name, :vineyard_id, :vintage, :description, :price, :category, :grape, :occasion, :on_hand, :consumption )
   end
 
 end
