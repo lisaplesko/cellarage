@@ -6,7 +6,8 @@ class WinesController < ApplicationController
 
   def new
     @wine = Wine.new
-    @vineyard_options = Vineyard.all.map{|v| [v.name]}
+    @vineyard_options = Vineyard.all.map{|vineyard| [vineyard.name]}
+    @vineyard = Vineyard.new
   end
 
   def show

@@ -2,12 +2,34 @@
 
 <%= form_for @wine do |f| %>
 
+  Select current vineyard:<br>
+  <%= f.select :vineyard, @vineyard_options, :include_blank => true %><br>
 
-  <%= select_tag(:vineyard_id, options_for_select(@vineyard_options)) %>
+  <br>
 
-  <%= f.label :product_key %>
-  <%= f.text_field :product_key %>
+  <strong>Add new vineyard</strong><br>
 
+    <%= f.fields_for :vineyard, @vineyard do |vineyard| %>
+    <%= vineyard.label :name %>
+    <%= vineyard.text_field :name %><br>
+
+    <%= vineyard.label :address %>
+    <%= vineyard.text_field :address %><br>
+
+    <%= vineyard.label :country %>
+    <%= vineyard.text_field :country %><br>
+
+  <% end %>
+
+  <!-- form helper for vineyard add? -->
+
+
+<br>
+
+  <%= f.label :name %>
+  <%= f.text_field :name %>
+
+  <br>
 
   <%= f.label :price %>
   <%= f.text_field :price %>
