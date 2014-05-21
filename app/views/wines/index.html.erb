@@ -1,9 +1,7 @@
 <% if user_signed_in? %>
 
-Sort by: Category  Type   Occasion
 <br>
-
-<%= link_to "+", new_wine_path %><br><br>
+<br>
 
 <h3>Wines currently in my cellar</h3>
 
@@ -32,6 +30,8 @@ Sort by: Category  Type   Occasion
     <% end %>
   <% end %>
 </table>
+
+<%= link_to "+", new_wine_path %><br><br>
 
   <hr>
 

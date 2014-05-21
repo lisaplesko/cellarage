@@ -12,17 +12,17 @@
     <td>Purchase/More Information &nbsp;&nbsp; <a href="http://www.wine.com/" title="Wine.com the destination for Wine and Wine Gifts"><img src="http://cache.wine.com/images/logos/80x20_winecom_logo.png" alt="Wine.com the destination for Wine and Wine Gifts" /></a></td>
   </thead>
 
-<% @response["Products"]["List"].each do |response| %>
+  <% @response["Products"]["List"].each do |response| %>
 
-      <tr>
-        <td><%= response["Name"] %></td>
-        <td><%= response["Appellation"]["Name"] %></td>
-        <td><%= response["Ratings"]["HighestScore"] %></td>
-        <td><img src="<%= response["Labels"][0]["Url"] %>"></td>
-        <td><%= response["Varietal"]["Name"] %></td>
-        <td><%= link_to nil, response["Url"], :target => '_blank' %></td>
-      </tr>
-    <% end %>
+    <tr>
+      <td><%= response["Name"] %></td>
+      <td><%= response["Appellation"]["Name"] %></td>
+      <td><%= response["Ratings"]["HighestScore"] %></td>
+      <td><img src="<%= response["Labels"][0]["Url"] %>"></td>
+      <td><%= response["Varietal"]["Name"] %></td>
+      <td><%= link_to nil, response["Url"], :target => '_blank' %></td>
+    </tr>
+  <% end %>
 </table>
 
 

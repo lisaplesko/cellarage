@@ -44,4 +44,38 @@ class Wine < ActiveRecord::Base
     HTTParty.get(api_url)
   end
 
+  def self.by_category(category)
+    if category
+      Wine.order(:name).where(category: category)
+    else
+      Wine.order(:name)
+    end
+  end
+
+  def self.by_varietal(grape)
+    if grape
+      Wine.order(:name).where(grape: grape)
+    else
+      Wine.order(:name)
+    end
+  end
+
+  def self.by_occasion(occasion)
+    if occasion
+      Wine.order(:name).where(occasion: occasion)
+    else
+      Wine.order(:name)
+    end
+  end
+
+   # def self.by_category(search_item)
+  #   if search_item
+  #     Wine.order(:name).where(category: search_item)
+  #   else
+  #     Wine.order(:name)
+  #   end
+  # end
+
+
+
 end

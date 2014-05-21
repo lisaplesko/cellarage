@@ -3,7 +3,9 @@ class WinesController < ApplicationController
 
   def index
     if user_signed_in?
-      @wines = current_user.wines
+      @wines = current_user.wines.by_category(params[:category])
+      @wines = current_user.wines.by_varietal(params[:grape])
+      @wines = current_user.wines.by_occasion(params[:occasion])
     else
       @wines = Wine.all
     end
