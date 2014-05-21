@@ -6,6 +6,15 @@
 // FOUNDATION SETTINGS
 //
 
+.hero {
+  background-image: url('http://i.imgur.com/jMdaYlv.jpg');
+  background-size: 100%;
+  overflow: hidden;
+  min-height: 200px;
+  background-repeat: no-repeat;
+  background-position: 0 -75px;
+}
+
 // This is the default html and body font-size for the base rem value.
 // $rem-base: 16px;
 
@@ -1168,7 +1177,7 @@
 // $include-html-top-bar-classes: $include-html-classes;
 
 // Background color for the top bar
-// $topbar-bg-color: #333;
+$topbar-bg-color: #4F0632;
 // $topbar-bg: $topbar-bg-color;
 
 // Height and margin
@@ -1180,7 +1189,7 @@
 // $topbar-title-font-size: rem-calc(17);
 
 // Style the top bar dropdown elements
-// $topbar-dropdown-bg: #333;
+$topbar-dropdown-bg: #4F0632;
 // $topbar-dropdown-link-color: #fff;
 // $topbar-dropdown-link-bg: #333;
 // $topbar-dropdown-link-weight: normal;
