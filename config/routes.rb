@@ -7,6 +7,7 @@ Rails.application.routes.draw do
     member do
       post :upcount
       post :downcount
+      get :search
     end
   end
   resources :vineyards

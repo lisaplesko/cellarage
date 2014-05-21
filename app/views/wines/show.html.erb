@@ -3,24 +3,27 @@
 
 <h2><%= @wine.name %></h2>
 
-<p>Vineyard: <%= @wine.name %></p>
+<p>Vineyard: <%= @wine.name %>
+<%= link_to 'Search for other wines by this vineyard', search_wine_path(@wine) %></p>
 <p>Vintage: <%= @wine.vintage %></p>
-<p>Description: <%= @wine.description %></p>
-<p>Price: <%= @wine.price %></p>
+<p>Region: <%= @wine.region %></p>
+<p>Price: <%= number_to_currency(@wine.price) %></p>
 <p>Category: <%= @wine.category %></p>
 <p>Grape: <%= @wine.grape %></p>
 <p>Occasion: <%= @wine.occasion %></p>
 
 <%= link_to 'Edit wine details', edit_wine_path(@wine) %>
 
+
 <hr>
 
 <% @wine.reviews.each do |review| %>
-  <blockquote><%= review.description %></blockquote> <br>
+  <blockquote><%= review.description %></blockquote>
 <% end %>
 
 </div>
 
+<h3>Inventory</h3>
 
 On-hand: <%= @wine.on_hand %> | Consumption: <%= @wine.consumption %><br>
 <ul class = "button-group round">

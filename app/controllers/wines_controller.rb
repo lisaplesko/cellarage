@@ -18,7 +18,14 @@ class WinesController < ApplicationController
   def show
     @wine = Wine.find(params[:id])
     @review = @wine.reviews.new
-    # @response = Wine.response(@wine[:product_key])
+  end
+
+  def search
+    wine = Wine.find(params[:id])
+    vineyard_name = wine.vineyard.name
+    varietal = wine.grape
+    @response = Wine.response(vineyard_name, varietal)
+    render :search_results
   end
 
   def edit
