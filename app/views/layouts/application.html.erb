@@ -19,60 +19,7 @@
   </div>
 
   <nav class="top-bar" data-topbar>
-    <ul class="title-area">
-      <li class="name">
-        <h1><%= link_to "INVENTORY", root_path %></a></h1>
-      </li>
-      <li class="toggle-topbar menu-icon"><a href="">Menu</a></li>
-    </ul>
-    <section class="top-bar-section">
-
-      <ul class="left">
-        <li class="has-dropdown"><a href="#">Categories</a>
-          <ul class="dropdown">
-            <% Wine::CATEGORIES.each do |category| %>
-              <li><%= link_to category, wines_path(category: category) %></li>
-            <% end %>
-          </ul>
-        </li>
-      </ul>
-
-      <ul class="left">
-        <li class="has-dropdown"><a href="#">Varietals</a>
-          <ul class="dropdown">
-            <% Wine::GRAPES.each do |grape| %>
-              <li><%= link_to grape, wines_path(grape: grape) %></li>
-            <% end %>
-          </ul>
-        </li>
-      </ul>
-
-      <ul class="left">
-        <li class="has-dropdown"><a href="#">Occasions</a>
-          <ul class="dropdown">
-            <% Wine::OCCASIONS.each do |occasion| %>
-              <li><%= link_to occasion, wines_path(occasion: occasion) %></li>
-            <% end %>
-          </ul>
-        </li>
-      </ul>
-
-      <% if user_signed_in? %>
-      <ul class="right">
-        <li class="has-form"><%= link_to "Logged in as #{current_user.email}"%></li>
-        <li class="divider"></li>
-        <li class="has-form"><%= link_to 'Edit profile', edit_user_registration_path, class: 'button secondary' %></li>
-        <li class="divider"></li>
-        <li class="has-form"><%= link_to "Logout", destroy_user_session_path, method: :delete, class: 'button secondary' %></li>
-      </ul>
-      <% else %>
-      <ul class="right">
-        <li class="has-form"><%= link_to "Sign up", new_user_registration_path, class: 'button secondary' %></li>
-        <li class="divider"></li>
-        <li class="has-form"><%= link_to "Login", new_user_session_path, class: 'button secondary' %></li>
-      <% end %>
-      </ul>
-    </section>
+  <%= render 'nav' %>
   </nav>
 
 
