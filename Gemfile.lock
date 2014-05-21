@@ -70,6 +70,9 @@ GEM
       railties (>= 3.0.0)
     faker (1.3.0)
       i18n (~> 0.5)
+    foundation-rails (5.2.2.0)
+      railties (>= 3.1.0)
+      sass (>= 3.2.0)
     hike (1.2.3)
     httparty (0.13.1)
       json (~> 1.8)
@@ -198,6 +201,7 @@ DEPENDENCIES
   dotenv-rails
   factory_girl_rails
   faker
+  foundation-rails
   httparty (~> 0.13.1)
   jbuilder (~> 2.0)
   jquery-rails

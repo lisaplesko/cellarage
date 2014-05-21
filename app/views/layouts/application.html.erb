@@ -1,29 +1,64 @@
 <!DOCTYPE html>
-<html>
-<head>
-  <title>Wdi5WineCellar</title>
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
-  <%= csrf_meta_tags %>
-</head>
-<body>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-<% if user_signed_in? %>
-      Logged in as <strong><%= current_user.email %></strong>.
-      <%= link_to 'Edit profile', edit_user_registration_path %> |
-      <%= link_to "Logout", destroy_user_session_path, method: :delete %>
-<% else %>
-      <%= link_to "Sign up", new_user_registration_path %> |
-      <%= link_to "Login", new_user_session_path %>
-<% end %>
+    <title><%= content_for?(:title) ? yield(:title) : "foundation-rails" %></title>
 
-<% flash.each do |name, msg| %>
-  <% if msg.is_a?(String) %>
+    <%= stylesheet_link_tag    "application" %>
+    <%= javascript_include_tag "vendor/modernizr" %>
+    <%= csrf_meta_tags %>
+  </head>
+
+  <body>
+
+  <nav class="top-bar">
+    <ul class="title-area">
+      <li class="name">
+        <h1><%= link_to "WINE CELLAR INVENTORY" %></a></h1>
+      </li>
+    </ul>
+    <section class="top-bar-section">
+      <% if user_signed_in? %>
+      <ul class="right">
+        <li class="has-form"><%= link_to "Logged in as #{current_user.email}"%></li>
+        <li class="divider"></li>
+        <li class="has-form"><%= link_to 'Edit profile', edit_user_registration_path, class: 'button' %></li>
+        <li class="divider"></li>
+        <li class="has-form"><%= link_to "Logout", destroy_user_session_path, method: :delete, class: 'button alert' %></li>
+      </ul>
+      <% else %>
+      <ul class="right">
+        <li class="has-form"><%= link_to "Sign up", new_user_registration_path, class: 'button' %></li>
+        <li class="divider"></li>
+        <li class="has-form"><%= link_to "Login", new_user_session_path, class: 'button' %></li>
+      <% end %>
+      </ul>
+    </section>
+  </nav>
+
+  <div data-interchange="[http://i.imgur.com/jMdaYlv.jpg, (default)], [http://i.imgur.com/jMdaYlv.jpg, (large)]"></div>
+
+  <div id="wrap">
+
+  <% flash.each do |name, msg| %>
+    <% if msg.is_a?(String) %>
     <%= content_tag :div, msg, :class => "flash_#{name}" %>
+    <% end %>
   <% end %>
-<% end %>
 
-<%= yield %>
+  <div class="row">
+    <div class="large-12 columns">
+      <%= yield %>
+    </div>
+  </div>
 
-</body>
+
+
+
+    <%= javascript_include_tag "application" %>
+
+  </div>
+  </body>
 </html>
