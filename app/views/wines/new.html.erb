@@ -1,15 +1,36 @@
 <h1>Add a new wine</h1>
 
 <%= form_for @vineyard do |vineyard| %>
-  <%= vineyard.label :name %>
-  <%= vineyard.text_field :name %><br>
 
-  <%= vineyard.label :address %>
-  <%= vineyard.text_field :address %><br>
+<strong>Add new vineyard</strong><br>
 
-  <%= vineyard.label :country %>
-  <%= vineyard.text_field :country %><br>
-  <%= vineyard.submit %>
+<div class="row collapse">
+  <div class="small-2 columns">
+    <%= vineyard.label :name, class: 'prefix radius' %>
+  </div>
+  <div class="small-10 columns">
+    <%= vineyard.text_field :name %>
+  </div>
+</div>
+
+<div class="row collapse">
+  <div class="small-2 columns">
+    <%= vineyard.label :address, class: 'prefix radius' %>
+  </div>
+  <div class="small-10 columns">
+    <%= vineyard.text_field :address %>
+  </div>
+</div>
+
+<div class="row collapse">
+  <div class="small-2 columns">
+    <%= vineyard.label :country, class: 'prefix radius' %>
+  </div>
+  <div class="small-10 columns">
+    <%= vineyard.text_field :country %>
+  </div>
+</div>
+  <%= vineyard.submit 'Add vineyard', class: 'small button' %>
 <% end %>
 
 <%= form_for @wine do |f| %>
@@ -19,48 +40,76 @@
 
   <br>
 
-  <strong>Add new vineyard</strong><br>
+
 
   <!-- form helper for vineyard add? -->
 
-<br>
+<div class="row collapse">
+  <div class="small-2 columns">
+    <%= f.label :name, class: 'prefix radius' %>
+  </div>
+  <div class="small-10 columns">
+    <%= f.text_field :name %>
+  </div>
+</div>
 
-  <%= f.label :name %>
-  <%= f.text_field :name %>
+<div class="row collapse">
+  <div class="small-2 columns">
+    <%= f.label :vintage, class: 'prefix radius' %>
+  </div>
+  <div class="small-10 columns">
+    <%= f.text_field :vintage %>
+  </div>
+</div>
+
+<div class="row collapse">
+  <div class="small-2 columns">
+    <%= f.label :price, class: 'prefix radius' %>
+  </div>
+  <div class="small-10 columns">
+    <%= f.text_field :price %>
+  </div>
+</div>
+
+<div class="row collapse">
+  <div class="small-2 columns">
+    <%= f.label :category, class: 'prefix radius' %>
+  </div>
+  <div class="small-10 columns">
+    <%= f.select :category, Wine::CATEGORIES, include_blank: true %>
+  </div>
+</div>
+
+<div class="row collapse">
+  <div class="small-2 columns">
+    <%= f.label :grape, class: 'prefix radius' %>
+  </div>
+  <div class="small-10 columns">
+    <%= f.select :grape, Wine::GRAPES, include_blank: true %>
+  </div>
+</div>
+
+<div class="row collapse">
+  <div class="small-2 columns">
+    <%= f.label :occasion, class: 'prefix radius' %>
+  </div>
+  <div class="small-10 columns">
+    <%= f.select :occasion, Wine::OCCASIONS, include_blank: true %>
+  </div>
+</div>
+
+<div class="row collapse">
+  <div class="small-2 columns">
+    <%= f.label :on_hand, class: 'prefix radius' %>
+  </div>
+  <div class="small-10 columns">
+    <%= f.text_field :on_hand %>
+  </div>
+</div>
 
   <br>
 
-  <%= f.label :vintage %>
-  <%= f.text_field :vintage %>
-
-  <br>
-
-  <%= f.label :price %>
-  <%= f.text_field :price %>
-
-  <br>
-
-  <%= f.label :category %>
-  <%= f.select :category, Wine::CATEGORIES, include_blank: true %>
-
-  <br>
-
-  <%= f.label :grape %>
-  <%= f.select :grape, Wine::GRAPES, include_blank: true %>
-
-  <br>
-
-  <%= f.label :occasion %>
-  <%= f.select :occasion, Wine::OCCASIONS, include_blank: true %>
-
-  <br>
-
-  <%= f.label :on_hand %>
-  <%= f.text_field :on_hand %>
-
-  <br>
-
-  <%= f.submit 'Submit' %>
+  <%= f.submit 'Submit', class: 'small button' %>
 
 <% end %>
 

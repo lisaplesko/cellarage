@@ -10,8 +10,10 @@ Occasion: <%= @wine.occasion %><br>
 
 
 On-hand: <%= @wine.on_hand %> | Consumption: <%= @wine.consumption %><br>
-<%= button_to  "Drink", downcount_wine_path %>
-<%= button_to  "Add", upcount_wine_path %>
+<ul class = "button-group round">
+  <li><%= button_to  "Drink", downcount_wine_path, class: 'small button secondary' %></li>
+  <li><%= button_to  "Add", upcount_wine_path, class: 'small button secondary' %></li>
+</ul>
 
 
 

@@ -16,7 +16,7 @@
   <nav class="top-bar">
     <ul class="title-area">
       <li class="name">
-        <h1><%= link_to "WINE CELLAR INVENTORY" %></a></h1>
+        <h1><%= link_to "WINE CELLAR INVENTORY", root_path %></a></h1>
       </li>
     </ul>
     <section class="top-bar-section">
@@ -39,10 +39,10 @@
   </nav>
 
   <div class="hero">
-  Testing.
+  This is a test!
   </div>
 
-  <div id="wrap">
+
 
   <% flash.each do |name, msg| %>
     <% if msg.is_a?(String) %>
@@ -56,11 +56,8 @@
     </div>
   </div>
 
+  <%= javascript_include_tag "application" %>
 
 
-
-    <%= javascript_include_tag "application" %>
-
-  </div>
   </body>
 </html>
