@@ -3,7 +3,7 @@
 
 <h2><%= @wine.name %></h2>
 
-<p>Vineyard: <%= @wine.name %>
+<p>Vineyard: <%= @wine.vineyard.name %>
 <%= link_to 'Search for other wines by this vineyard', search_wine_path(@wine) %></p>
 <p>Vintage: <%= @wine.vintage %></p>
 <p>Region: <%= @wine.region %></p>

@@ -20,10 +20,11 @@ class WinesController < ApplicationController
     @review = @wine.reviews.new
   end
 
+  # Search used for API request, passing in vineyard name and grape type
   def search
-    wine = Wine.find(params[:id])
-    vineyard_name = wine.vineyard.name
-    varietal = wine.grape
+    @wine = Wine.find(params[:id])
+    vineyard_name = @wine.vineyard.name
+    varietal = @wine.grape
     @response = Wine.response(vineyard_name, varietal)
     render :search_results
   end

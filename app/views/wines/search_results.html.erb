@@ -1,14 +1,15 @@
-<h3>Similar wines by @wine.vineyard</h3>
+<br>
+
+<h3>Similar wines by <%= @wine.vineyard.name %></h3>
 
 <table>
   <thead>
-    <td>Vintage</td>
-    <td>Name</td>
     <td>Vineyard</td>
-    <td>Quantity</td>
-    <td>Category</td>
+    <td>Region</td>
+    <td>Highest Rating</td>
+    <td>Label</td>
     <td>Varietal</td>
-    <td>Occasion</td>
+    <td>Purchase/More Information &nbsp;&nbsp; <a href="http://www.wine.com/" title="Wine.com the destination for Wine and Wine Gifts"><img src="http://cache.wine.com/images/logos/80x20_winecom_logo.png" alt="Wine.com the destination for Wine and Wine Gifts" /></a></td>
   </thead>
 
 <% @response["Products"]["List"].each do |response| %>
@@ -19,15 +20,9 @@
         <td><%= response["Ratings"]["HighestScore"] %></td>
         <td><img src="<%= response["Labels"][0]["Url"] %>"></td>
         <td><%= response["Varietal"]["Name"] %></td>
-        <td><%= response["Url"] %></td>
+        <td><%= link_to nil, response["Url"], :target => '_blank' %></td>
       </tr>
     <% end %>
 </table>
 
 
-
-<% @response["Products"]["List"].each do |response| %>
-  <%= response["Name"] %> <br>
-  <%= response["PriceMin"] %> <br>
-
-<% end %>
