@@ -1,0 +1,33 @@
+<h3>Similar wines by @wine.vineyard</h3>
+
+<table>
+  <thead>
+    <td>Vintage</td>
+    <td>Name</td>
+    <td>Vineyard</td>
+    <td>Quantity</td>
+    <td>Category</td>
+    <td>Varietal</td>
+    <td>Occasion</td>
+  </thead>
+
+<% @response["Products"]["List"].each do |response| %>
+
+      <tr>
+        <td><%= response["Name"] %></td>
+        <td><%= response["Appellation"]["Name"] %></td>
+        <td><%= response["Ratings"]["HighestScore"] %></td>
+        <td><img src="<%= response["Labels"][0]["Url"] %>"></td>
+        <td><%= response["Varietal"]["Name"] %></td>
+        <td><%= response["Url"] %></td>
+      </tr>
+    <% end %>
+</table>
+
+
+
+<% @response["Products"]["List"].each do |response| %>
+  <%= response["Name"] %> <br>
+  <%= response["PriceMin"] %> <br>
+
+<% end %>
