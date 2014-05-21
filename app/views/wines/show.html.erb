@@ -1,12 +1,25 @@
-<h1><%= @wine.name %></h1>
+<br>
+<div class="panel">
 
-Vineyard: <%= @wine.name %><br>
-Vintage: <%= @wine.vintage %><br>
-Description: <%= @wine.description %><br>
-Price: <%= @wine.price %><br>
-Category: <%= @wine.category %><br>
-Grape: <%= @wine.grape %><br>
-Occasion: <%= @wine.occasion %><br>
+<h2><%= @wine.name %></h2>
+
+<p>Vineyard: <%= @wine.name %></p>
+<p>Vintage: <%= @wine.vintage %></p>
+<p>Description: <%= @wine.description %></p>
+<p>Price: <%= @wine.price %></p>
+<p>Category: <%= @wine.category %></p>
+<p>Grape: <%= @wine.grape %></p>
+<p>Occasion: <%= @wine.occasion %></p>
+
+<%= link_to 'Edit wine details', edit_wine_path(@wine) %>
+
+<hr>
+
+<% @wine.reviews.each do |review| %>
+  <blockquote><%= review.description %></blockquote> <br>
+<% end %>
+
+</div>
 
 
 On-hand: <%= @wine.on_hand %> | Consumption: <%= @wine.consumption %><br>
@@ -31,9 +44,7 @@ On-hand: <%= @wine.on_hand %> | Consumption: <%= @wine.consumption %><br>
 <% end %>
 
 
-<% @wine.reviews.each do |review| %>
-  <%= review.description %> <br>
-<% end %>
+
 
 
 

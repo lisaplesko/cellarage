@@ -1,4 +1,79 @@
-#vineyard
-  #vineyard_from_list
-    = f.association :vineyard, :collection => Vineyard.all(:order => 'name'), :prompt => 'Choose an existing vineyard'
-  = link_to_add_association 'add a new vineyard', f, :vineyard
+
+
+<%= form_for @wine do |f| %>
+
+  Select current vineyard:<br>
+  <%= f.select :vineyard_id, @vineyard_options, include_blank: true %><br>
+
+  <br>
+
+  <!-- form helper for vineyard add? -->
+
+<div class="row collapse">
+  <div class="small-2 columns">
+    <%= f.label :name, class: 'prefix radius' %>
+  </div>
+  <div class="small-10 columns">
+    <%= f.text_field :name %>
+  </div>
+</div>
+
+<div class="row collapse">
+  <div class="small-2 columns">
+    <%= f.label :vintage, class: 'prefix radius' %>
+  </div>
+  <div class="small-10 columns">
+    <%= f.text_field :vintage %>
+  </div>
+</div>
+
+<div class="row collapse">
+  <div class="small-2 columns">
+    <%= f.label :price, class: 'prefix radius' %>
+  </div>
+  <div class="small-10 columns">
+    <%= f.text_field :price %>
+  </div>
+</div>
+
+<div class="row collapse">
+  <div class="small-2 columns">
+    <%= f.label :category, class: 'prefix radius' %>
+  </div>
+  <div class="small-10 columns">
+    <%= f.select :category, Wine::CATEGORIES, include_blank: true %>
+  </div>
+</div>
+
+<div class="row collapse">
+  <div class="small-2 columns">
+    <%= f.label :grape, class: 'prefix radius' %>
+  </div>
+  <div class="small-10 columns">
+    <%= f.select :grape, Wine::GRAPES, include_blank: true %>
+  </div>
+</div>
+
+<div class="row collapse">
+  <div class="small-2 columns">
+    <%= f.label :occasion, class: 'prefix radius' %>
+  </div>
+  <div class="small-10 columns">
+    <%= f.select :occasion, Wine::OCCASIONS, include_blank: true %>
+  </div>
+</div>
+
+<div class="row collapse">
+  <div class="small-2 columns">
+    <%= f.label :on_hand, class: 'prefix radius' %>
+  </div>
+  <div class="small-10 columns">
+    <%= f.text_field :on_hand %>
+  </div>
+</div>
+
+  <br>
+
+  <%= f.submit 'Submit', class: 'small button' %>
+
+<% end %>

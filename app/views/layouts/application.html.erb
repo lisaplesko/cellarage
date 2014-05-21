@@ -13,6 +13,11 @@
 
   <body>
 
+
+  <div class="hero">
+  This is a test!
+  </div>
+
   <nav class="top-bar">
     <ul class="title-area">
       <li class="name">
@@ -24,23 +29,19 @@
       <ul class="right">
         <li class="has-form"><%= link_to "Logged in as #{current_user.email}"%></li>
         <li class="divider"></li>
-        <li class="has-form"><%= link_to 'Edit profile', edit_user_registration_path, class: 'button' %></li>
+        <li class="has-form"><%= link_to 'Edit profile', edit_user_registration_path, class: 'button secondary' %></li>
         <li class="divider"></li>
-        <li class="has-form"><%= link_to "Logout", destroy_user_session_path, method: :delete, class: 'button alert' %></li>
+        <li class="has-form"><%= link_to "Logout", destroy_user_session_path, method: :delete, class: 'button secondary' %></li>
       </ul>
       <% else %>
       <ul class="right">
-        <li class="has-form"><%= link_to "Sign up", new_user_registration_path, class: 'button' %></li>
+        <li class="has-form"><%= link_to "Sign up", new_user_registration_path, class: 'button secondary' %></li>
         <li class="divider"></li>
-        <li class="has-form"><%= link_to "Login", new_user_session_path, class: 'button' %></li>
+        <li class="has-form"><%= link_to "Login", new_user_session_path, class: 'button secondary' %></li>
       <% end %>
       </ul>
     </section>
   </nav>
-
-  <div class="hero">
-  This is a test!
-  </div>
 
 
 

@@ -1,7 +1,3 @@
-<h1>Wine cellar inventory</h1>
-
-
-
 <% if user_signed_in? %>
 
 Sort by: Category  Type   Occasion
@@ -9,27 +5,68 @@ Sort by: Category  Type   Occasion
 
 <%= link_to "+", new_wine_path %><br><br>
 
-<h3>Current in the cellar</h3>
+<h3>Wines currently in my cellar</h3>
+
+<table>
+  <thead>
+    <td>Vintage</td>
+    <td>Name</td>
+    <td>Vineyard</td>
+    <td>Quantity</td>
+    <td>Category</td>
+    <td>Varietal</td>
+    <td>Occasion</td>
+  </thead>
+
   <% @wines.each do |wine| %>
     <% if wine.on_hand > 0 %>
-      <%= wine.vintage %> -
-      <%= link_to wine.name, wine %>
-      by: <%= wine.vineyard.name %>  |
-      <b>Qty:</b> <%= wine.on_hand %> <br>
+      <tr>
+        <td><%= wine.vintage %></td>
+        <td><%= link_to wine.name, wine %></td>
+        <td><%= wine.vineyard.name %></td>
+        <td><%= wine.on_hand %></td>
+        <td><%= wine.category %></td>
+        <td><%=wine.grape %></td>
+        <td><%= wine.occasion %></td>
+      </tr>
     <% end %>
   <% end %>
+</table>
 
   <hr>
 
-<h3>Dunzo</h3>
+<h3>Wines I've already enjoyed</h3>
+
+<table>
+  <thead class="consumed">
+    <td>Vintage</td>
+    <td>Name</td>
+    <td>Vineyard</td>
+    <td>Consumed</td>
+    <td>Category</td>
+    <td>Varietal</td>
+    <td>Review</td>
+  </thead>
+
   <% @wines.each do |wine| %>
     <% if wine.on_hand <= 0 %>
-      <%= wine.vintage %> -
-      <%= link_to wine.name, wine %>
-      by: <%= wine.vineyard.name %>  |
-      <b>Consumed:</b> <%= wine.consumption %> <br>
+      <tr>
+        <td><%= wine.vintage %></td>
+        <td><%= link_to wine.name, wine %></td>
+        <td><%= wine.vineyard.name %></td>
+        <td><%= wine.consumption %></td>
+        <td><%= wine.category %></td>
+        <td><%=wine.grape %></td>
+        <td><% if wine.reviews.present? %>
+              yes
+            <% end %>
+
+        </td>
+      </tr>
     <% end %>
   <% end %>
+</table>
+
 
 
 <% else %>
