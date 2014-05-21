@@ -1,18 +1,13 @@
-
-
 <%= form_for @wine do |f| %>
 
 <br>
 <br>
 
-<p><strong>Select a winery</strong> from the list:</p>
-<%= f.select :vineyard_id, @vineyard_options, include_blank: true %><br>
+<p><strong>**Select a winery</strong> from the list:</p>
+<%= f.select :vineyard_id, @vineyard_options, include_blank: true %>
 
 <br>
-
-<br><br>
-<hr>
-<br><br>
+<br>
 
 <h3>Add details about your wine</h3>
 
@@ -20,16 +15,13 @@
   <div class="small-2 columns">
     <%= f.label :name, class: 'prefix radius' %>
   </div>
-  <div class="small-10 columns">
+  <div class="small-4 columns">
     <%= f.text_field :name %>
   </div>
-</div>
-
-<div class="row collapse">
   <div class="small-2 columns">
     <%= f.label :vintage, class: 'prefix radius' %>
   </div>
-  <div class="small-10 columns">
+  <div class="small-4 columns">
     <%= f.text_field :vintage %>
   </div>
 </div>
@@ -38,8 +30,14 @@
   <div class="small-2 columns">
     <%= f.label :price, class: 'prefix radius' %>
   </div>
-  <div class="small-10 columns">
+  <div class="small-4 columns">
     <%= f.text_field :price %>
+  </div>
+  <div class="small-2 columns">
+    <%= f.label :on_hand, class: 'prefix radius' %>
+  </div>
+  <div class="small-4 columns">
+    <%= f.text_field :on_hand %>
   </div>
 </div>
 
@@ -70,14 +68,7 @@
   </div>
 </div>
 
-<div class="row collapse">
-  <div class="small-2 columns">
-    <%= f.label :on_hand, class: 'prefix radius' %>
-  </div>
-  <div class="small-10 columns">
-    <%= f.text_field :on_hand %>
-  </div>
-</div>
+
 
   <br>
 

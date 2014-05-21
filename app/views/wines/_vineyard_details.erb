@@ -21,10 +21,12 @@
   <div class="small-2 columns">
     <%= vineyard.label :country, class: 'right inline' %>
   </div>
-  <div class="small-4 columns">
+  <div class="small-2 small-4 columns">
     <%= vineyard.text_field :country %>
   </div>
+  <div class="medium-1 columns">
+    <%= vineyard.submit 'Add vineyard', class: 'small button right simple' %>
+  </div>
 </div>
-  <%= vineyard.submit 'Add vineyard', class: 'small button right simple' %>
 
 <% end %>
