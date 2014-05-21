@@ -2,12 +2,19 @@
 
 <%= form_for @wine do |f| %>
 
-  Select current vineyard:<br>
-  <%= f.select :vineyard_id, @vineyard_options, include_blank: true %><br>
+<br>
+<br>
 
-  <br>
+<p><strong>Select a winery</strong> from the list:</p>
+<%= f.select :vineyard_id, @vineyard_options, include_blank: true %><br>
 
-  <!-- form helper for vineyard add? -->
+<br>
+
+<br><br>
+<hr>
+<br><br>
+
+<h3>Add details about your wine</h3>
 
 <div class="row collapse">
   <div class="small-2 columns">

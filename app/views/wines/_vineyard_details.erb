@@ -1,33 +1,30 @@
 <%= form_for @vineyard do |vineyard| %>
 
-<strong>Add new vineyard</strong><br>
+<p>Is this a new vineyard?  If so, please add vineyard details below:</p>
 
 <div class="row collapse">
-  <div class="small-2 columns">
-    <%= vineyard.label :name, class: 'prefix radius' %>
+  <div class="small-5 columns">
+    <%= vineyard.label :name, 'Vineyard Name', class: 'right inline' %>
   </div>
-  <div class="small-10 columns">
+  <div class="small-7 columns">
     <%= vineyard.text_field :name %>
   </div>
 </div>
 
 <div class="row collapse">
   <div class="small-2 columns">
-    <%= vineyard.label :address, class: 'prefix radius' %>
+    <%= vineyard.label :address, class: 'right inline' %>
   </div>
-  <div class="small-10 columns">
+  <div class="small-4 columns">
     <%= vineyard.text_field :address %>
   </div>
-</div>
-
-<div class="row collapse">
   <div class="small-2 columns">
-    <%= vineyard.label :country, class: 'prefix radius' %>
+    <%= vineyard.label :country, class: 'right inline' %>
   </div>
-  <div class="small-10 columns">
+  <div class="small-4 columns">
     <%= vineyard.text_field :country %>
   </div>
 </div>
-  <%= vineyard.submit 'Add vineyard', class: 'small button' %>
+  <%= vineyard.submit 'Add vineyard', class: 'small button right simple' %>
 
 <% end %>
