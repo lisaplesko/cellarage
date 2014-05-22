@@ -31,15 +31,15 @@ class Wine < ActiveRecord::Base
             'Tempranillo',
             'Zinfandel']
 
-  OCCASIONS = ['Every day', 'Nice dinner', 'Holiday']
+  OCCASIONS = ['Celebration', 'Every day', 'Holiday', 'Nice dinner', 'Nice dinner']
 
 
   include HTTParty
 
+  # Generates the url needed for API requests.  Use URI.encode to strip spaces from search items.
+
   def self.response(vineyard, varietal)
-    # binding.pry
     api_key = ENV['WINE_API_KEY']
-    #@product_key = Wine.find(params[:product_key])
     api_url = "http://services.wine.com/api/beta2/service.svc/json/catalog?search=#{URI.encode(vineyard)}+#{URI.encode(varietal)}&apikey=#{api_key}"
     HTTParty.get(api_url)
   end
