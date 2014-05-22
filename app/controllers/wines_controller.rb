@@ -6,19 +6,21 @@ class WinesController < ApplicationController
   end
 
   def index
-    if user_signed_in?
     # Unhide the next line if pagination desired for wine results.
     # Also need to add <%= will_paginate @posts %> to index page.
       # @wines = Wine.paginate(:page => params[:page], :per_page => 20)
 
-      @wines = Wine.all
-    # Search parameters for sorting wines by type
-      # @wines = current_user.wines.by_category(params[:category])
-      # @wines = current_user.wines.by_varietal(params[:grape])
-      # @wines = current_user.wines.by_occasion(params[:occasion])
-    else
-      @wines = Wine.all
-    end
+      # Compare the params.keys (an array) with the SEARCH_CRITERIA array -
+      # find the intersection (if there is one) and assign it to query_param
+      query_param = (params.keys & Wine::SEARCH_CRITERIA).first
+
+      if query_param.nil?
+        # logger.debug "Get all wines"
+        @wines = Wine.all
+      else
+        # logger.debug "Get wines by #{params}"
+        @wines = Wine.by({query_param.to_sym => params[query_param]})
+      end
   end
 
   def new

@@ -5,6 +5,7 @@ class Wine < ActiveRecord::Base
   validates :name, presence: true
   validates :vineyard, presence: true
 
+  SEARCH_CRITERIA = ['category', 'grape', 'occasion']
 
   CATEGORIES = ['Red', 'White', 'Rosé', 'Sparking', 'Dessert']
   GRAPES = ['Barolo',
@@ -56,29 +57,36 @@ class Wine < ActiveRecord::Base
 
   ## Search fields for sorting on index page. Could be more DRY!
 
-  def self.by_category(category)
-    if category
-      Wine.order(:name).where(category: category)
-    else
-      Wine.order(:name)
-    end
+  def self.by(query_params)
+#      {category: "kdjdfkjf"}
+#      {grape: "kdjdfkjf"}
+#      {occasion: "kdjdfkjf"}
+    Wine.where(query_params).order(:name)
   end
 
-  def self.by_varietal(grape)
-    if grape
-      Wine.order(:name).where(grape: grape)
-    else
-      Wine.order(:name)
-    end
-  end
+  # def self.by_category(category)
+  #   if category
+  #     Wine.order(:name).where(category: category)
+  #   else
+  #     Wine.order(:name)
+  #   end
+  # end
 
-  def self.by_occasion(occasion)
-    if occasion
-      Wine.order(:name).where(occasion: occasion)
-    else
-      Wine.order(:name)
-    end
-  end
+  # def self.by_varietal(grape)
+  #   if grape
+  #     Wine.order(:name).where(grape: grape)
+  #   else
+  #     Wine.order(:name)
+  #   end
+  # end
+
+  # def self.by_occasion(occasion)
+  #   if occasion
+  #     Wine.order(:name).where(occasion: occasion)
+  #   else
+  #     Wine.order(:name)
+  #   end
+  # end
 
    # def self.by_category(search_item)
   #   if search_item
