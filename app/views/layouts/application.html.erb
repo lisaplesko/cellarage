@@ -85,11 +85,14 @@
 
     <div class="row">
       <div class="large-12 columns">
+        <div class="right">
+        <br>
         <% flash.each do |name, msg| %>
           <% if msg.is_a?(String) %>
             <%= content_tag :div, msg, :class => "flash_#{name}" %>
           <% end %>
         <% end %>
+        </div>
 
         <%= yield %>
 
