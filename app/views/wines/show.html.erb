@@ -3,19 +3,46 @@
 
 <h2><%= @wine.name %></h2>
 
-<p>Vineyard: <%= @wine.vineyard.name %>
-<%= link_to 'Search for other wines by this vineyard', search_wine_path(@wine) %></p>
-<p>Vintage: <%= @wine.vintage %></p>
-<p>Region: <%= @wine.region %></p>
-<p>Price: <%= number_to_currency(@wine.price) %></p>
-<p>Category: <%= @wine.category %></p>
-<p>Grape: <%= @wine.grape %></p>
-<p>Occasion: <%= @wine.occasion %></p>
+<div class="row">
+  <div class="medium-6 columns">
+
+    <dl>
+  <dt>Vineyard:</dt><dd> <%= @wine.vineyard.name %></dd>
+  <dt>Vintage:</dt><dd> <%= @wine.vintage %> </dd>
+  <dt>Region:</dt><dd> <%= @wine.region %> </dd>
+  <dt>Price:</dt><dd> <%= number_to_currency(@wine.price) %> </dd>
+  <dt>Category:</dt><dd> <%= @wine.category %> </dd>
+  <dt>Grape:</dt><dd> <%= @wine.grape %> </dd>
+  <dt>Occasion:</dt><dd> <%= @wine.occasion %> </dd>
+</dl>
+
+  </div>
+  <div class="medium-6 columns">
+    <h2>Inventory</h2>
+
+      On-hand: <%= @wine.on_hand %> | Consumption: <%= @wine.consumption %><br>
+      <ul class = "button-group round">
+        <li><%= button_to  "Drink", downcount_wine_path, class: 'small button secondary' %></li>
+        <li><%= button_to  "Add", upcount_wine_path, class: 'small button secondary' %></li>
+      </ul>
+
+
+
+  <%= link_to "Like this wine? Search for similar wines by #{@wine.vineyard.name}.", search_wine_path(@wine), class: 'button' %>
+  </div>
+</div>
+
+
+
+
+
 
 <%= link_to 'Edit wine details', edit_wine_path(@wine) %>
 
 
 <hr>
+
+<h2>Reviews</h2>
 
 <% @wine.reviews.each do |review| %>
   <blockquote><%= review.description %></blockquote>
@@ -23,29 +50,20 @@
 
 </div>
 
-<h3>Inventory</h3>
-
-On-hand: <%= @wine.on_hand %> | Consumption: <%= @wine.consumption %><br>
-<ul class = "button-group round">
-  <li><%= button_to  "Drink", downcount_wine_path, class: 'small button secondary' %></li>
-  <li><%= button_to  "Add", upcount_wine_path, class: 'small button secondary' %></li>
-</ul>
-
-
-
-<br>
 <br>
 
-<p>Please leave a review:</p>
 
 <%= form_for [@wine, @review] do |f| %>
 
-  <%= f.label :description  %>
+  <%= f.label :description, 'Add your review:'  %>
   <%= f.text_area :description  %>
 
   <%= f.submit 'Review' %>
 <% end %>
 
+
+<br>
+<br>
 
 
 

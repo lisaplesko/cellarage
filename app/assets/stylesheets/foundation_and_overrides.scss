@@ -51,6 +51,12 @@ label.right {
   background-color: #ccc !important;
 }
 
+dt, dd { display: inline; margin: 0; }
+
+dd:after {
+  content: '\A';
+  white-space: pre;
+}
 
 
 // This is the default html and body font-size for the base rem value.
@@ -165,7 +171,7 @@ $body-bg: #fff;
 // $include-html-type-classes: $include-html-classes;
 
 // We use these to control header font styles
-// $header-font-family: $body-font-family;
+$header-font-family: 'Montserrat', sans-serif;
 // $header-font-weight: normal;
 // $header-font-style: normal;
 // $header-font-color: #222;
