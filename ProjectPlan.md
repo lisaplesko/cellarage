@@ -31,6 +31,14 @@ Nice to have features, if time permits:
 * User can share a wine/description/review on Twitter or Facebook to a friend
 
 
+DATABASES:
+
+Users has_many wines
+Vineyards has_many wines
+Wines belongs_to Users, belongs_to Vineyards
+Inventory database to connect User and Wine?
+* Additional database for User saved_wines
+
 USER EXPERIENCE:
 
 Login page:  Shows overall details of cellar across all members

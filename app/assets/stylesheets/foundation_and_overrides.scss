@@ -36,12 +36,10 @@
   padding-bottom: 0px;
 }
 
-
 .top-bar-section li:not(.has-form) li:not(.has-dropdown) a:not(.button) {
     padding: 0 15px;
     line-height: 25px !important;
   }
-
 
 label.right {
   padding-right: 10px !important;
@@ -82,6 +80,7 @@ dd:after {
 }
 
 // Code for responsive tables from https://github.com/zurb/responsive-tables
+// Also requires responsive-tables.js file
 
 table th { font-weight: bold; }
 table td, table th { padding: 9px 10px; text-align: left; height: 30px}
