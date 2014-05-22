@@ -16,20 +16,22 @@
   <dt>Occasion:</dt><dd> <%= @wine.occasion %> </dd>
 </dl>
 
-  </div>
-  <div class="medium-6 columns">
-    <h2>Inventory</h2>
-
-      On-hand: <%= @wine.on_hand %> | Consumption: <%= @wine.consumption %><br>
-      <ul class = "button-group round">
-        <li><%= button_to  "Drink", downcount_wine_path, class: 'small button secondary' %></li>
-        <li><%= button_to  "Add", upcount_wine_path, class: 'small button secondary' %></li>
-      </ul>
-
-
-
-  <%= link_to "Like this wine? Search for similar wines by #{@wine.vineyard.name}.", search_wine_path(@wine), class: 'button' %>
-  </div>
+<em><%= link_to 'Edit wine details', edit_wine_path(@wine) %></em>
+</div>
+<div class="medium-6 columns">
+  <br><br>
+  Available to drink: <h3><strong><%= @wine.on_hand %></strong></h3>
+  Consumed: <h3><strong><%= @wine.consumption %></strong></h3>
+  <br><br>
+  <ul class = "button-group round">
+    <li><%= button_to  "Add", upcount_wine_path, class: 'small button secondary' %></li>
+    <li><%= button_to  "Drink", downcount_wine_path, class: 'small button secondary' %></li>
+  </ul>
+  <br><br>
+</div>
+<div class="center">
+<%= link_to "Like this wine? Search for similar wines by #{@wine.vineyard.name}.", search_wine_path(@wine), class: 'button' %>
+</div>
 </div>
 
 
@@ -37,7 +39,7 @@
 
 
 
-<%= link_to 'Edit wine details', edit_wine_path(@wine) %>
+
 
 
 <hr>
