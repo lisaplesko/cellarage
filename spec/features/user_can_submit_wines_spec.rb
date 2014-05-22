@@ -18,12 +18,11 @@ feature 'User submits a wine' do
     fill_in 'Price', with: 60.0
     click_button 'Submit'
 
-    save_and_open_page
-
     expect(page).to have_content 'Wine successfully added to collection!'
   end
 
-  # scenario 'unsuccessfully due to required fields being blank' do
+  # scenario 'unsuccessfully due to vineyard being blank' do
+  #   fill_in 'Name', with: 'Estate Cuvée Pinot Noir'
   #   click_button 'Submit'
   #   expect(page).to have_content "Name can't be blank"
   # end

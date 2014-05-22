@@ -19,19 +19,27 @@ class Wine < ActiveRecord::Base
             'Malbec',
             'Merlot',
             'Moscato',
+            'Muscat',
             'Other',
             'Petit Sirah',
+            'Petit Verdot',
             'Pinot Gris',
             'Pinot Noir',
             'Port',
             'Riesling',
+            'Roussanne',
             'Sangiovese',
+            'Semillon',
             'Sauvignon Blanc',
-            'Syrah/Shiraz',
+            'Syrah',
             'Tempranillo',
             'Zinfandel']
 
   OCCASIONS = ['Every day', 'Nice dinner', 'Holiday', 'Celebration']
+
+  # validates :category, inclusion: { in: CATEGORIES }
+  # validates :grape, inclusion: { in: GRAPES }
+  # validates :occasion, inclusion: { in: OCCASION }
 
 
   include HTTParty
