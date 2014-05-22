@@ -1,0 +1,9 @@
+  <div align="center">
+    <br>
+    <img class="front_page_image" src="http://i.imgur.com/Mq5GHul.png">
+    <h3>Members are storing <%= @wines.map(&:on_hand).reduce(&:+) %> wines in the cellar!</h3>
+    <h3>(Registered users have consumed <%= @wines.map(&:consumption).reduce(&:+) %> bottles!)</h3>
+
+    <br><br>
+    <%= link_to "Log in now to manage your wines", new_user_session_path, class: 'button secondary' %>
+  </div>

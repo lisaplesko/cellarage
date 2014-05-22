@@ -1,5 +1,9 @@
 class WinesController < ApplicationController
-  before_action :authenticate_user!, except: [:index]
+  before_action :authenticate_user!, except: [:index, :welcome]
+
+  def welcome
+    @wines = Wine.all
+  end
 
   def index
     if user_signed_in?
