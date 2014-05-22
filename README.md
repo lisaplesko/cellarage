@@ -3,6 +3,8 @@ Cellarage
 
 Cellarage is a rails app that allows users to track inventory of their wine collections and receive suggestions based on wines they like.
 
+View the app at http://plesko-wine-cellar.heroku.com
+
 Features
 -------
 * Login page shows total inventory & total consumption across all registered users
@@ -26,13 +28,13 @@ Installation
 
 This app requires an API key from wine.com at https://api.wine.com/
 
-    To begin, run `bundle install`
+To begin, run `bundle install`
 
 If you would like to begin with an initial user and sample data, run `rake db:seed`
 
     Temporary user
-    **login:** plesko.l@gmail.com
-    **password:** password
+    LOGIN:  plesko.l@gmail.com
+    PASSWORD:  password
 
 
 Thank you!
