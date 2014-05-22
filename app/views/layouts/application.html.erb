@@ -21,14 +21,16 @@
   </div>
 
   <nav class="top-bar" data-topbar>
-      <ul class="title-area">
+   <ul class="title-area">
     <li class="name">
+      <% if user_signed_in? %>
       <h1><%= link_to "INVENTORY", root_path %></a></h1>
+      <% end %>
     </li>
     <li class="toggle-topbar menu-icon"><a href="">Menu</a></li>
   </ul>
   <section class="top-bar-section">
-
+  <% if user_signed_in? %>
     <ul class="left">
       <li class="has-dropdown"><a href="#">Categories</a>
         <ul class="dropdown">
@@ -58,6 +60,7 @@
         </ul>
       </li>
     </ul>
+    <% end %>
 
     <% if user_signed_in? %>
       <ul class="right">

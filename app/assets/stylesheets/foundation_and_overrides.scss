@@ -51,6 +51,13 @@ label.right {
   background-color: #ccc !important;
 }
 
+.front_page_image {
+  position: absolute;
+  width: 300px;
+  top: -200px;
+  left: -60px;
+}
+
 dt, dd { display: inline; margin: 0; }
 
 dd:after {
@@ -60,6 +67,13 @@ dd:after {
 
 .center {
   text-align: center;
+}
+
+@media (max-width: 800px) {
+  .front_page_image {
+    display: none;
+  }
+
 }
 
 
