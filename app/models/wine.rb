@@ -4,7 +4,6 @@ class Wine < ActiveRecord::Base
   belongs_to :user
   validates :name, presence: true
   validates :vineyard, presence: true
-  # accepts_nested_attributes_for :vineyard #, :reject_if => :no_name
 
 
   CATEGORIES = ['Red', 'White', 'Rosé', 'Sparking', 'Dessert']
@@ -40,9 +39,9 @@ class Wine < ActiveRecord::Base
 
   OCCASIONS = ['Every day', 'Nice dinner', 'Holiday', 'Celebration']
 
-  # validates :category, inclusion: { in: CATEGORIES }
-  # validates :grape, inclusion: { in: GRAPES }
-  # validates :occasion, inclusion: { in: OCCASION }
+  validates :category, inclusion: { in: CATEGORIES }
+  validates :grape, inclusion: { in: GRAPES }
+  validates :occasion, inclusion: { in: OCCASIONS }
 
 
   include HTTParty

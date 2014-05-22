@@ -11,10 +11,11 @@ class WinesController < ApplicationController
     # Also need to add <%= will_paginate @posts %> to index page.
       # @wines = Wine.paginate(:page => params[:page], :per_page => 20)
 
+      @wines = Wine.all
     # Search parameters for sorting wines by type
-      @wines = current_user.wines.by_category(params[:category])
-      @wines = current_user.wines.by_varietal(params[:grape])
-      @wines = current_user.wines.by_occasion(params[:occasion])
+      # @wines = current_user.wines.by_category(params[:category])
+      # @wines = current_user.wines.by_varietal(params[:grape])
+      # @wines = current_user.wines.by_occasion(params[:occasion])
     else
       @wines = Wine.all
     end
