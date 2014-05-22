@@ -33,9 +33,9 @@
 
 <%= link_to "Add a new wine to my collection", new_wine_path, class: 'button radius primary' %><br><br>
 
-  <hr>
+<hr>
 
-<h3>Wines I've already enjoyed</h3>
+<h3>Wines I need to restock</h3>
 
 <table class="responsive">
   <thead>
@@ -56,11 +56,14 @@
         <td><%= wine.vineyard.name %></td>
         <td><%= wine.consumption %></td>
         <td><%= wine.category %></td>
-        <td><%=wine.grape %></td>
-        <td><% if wine.reviews.present? %>
-              yes
-            <% end %>
+        <td><%= wine.grape %></td>
+        <td>
 
+          <% if wine.reviews.present? %>
+            <div align="center">
+              <%= link_to "#{truncate(wine.reviews.first.description, length: 35)}", wine %>
+            </div>
+          <% end %>
         </td>
       </tr>
     <% end %>
