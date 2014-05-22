@@ -31,7 +31,7 @@ class Wine < ActiveRecord::Base
             'Tempranillo',
             'Zinfandel']
 
-  OCCASIONS = ['Everyday', 'Nice dinner', 'Holiday']
+  OCCASIONS = ['Every day', 'Nice dinner', 'Holiday']
 
 
   include HTTParty
