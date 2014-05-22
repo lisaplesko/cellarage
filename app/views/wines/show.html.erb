@@ -17,6 +17,10 @@
 </dl>
 
 <em><%= link_to 'Edit wine details', edit_wine_path(@wine) %></em>
+<br>
+<br>
+<em><%= link_to 'Delete this wine', @wine, method: :delete, data: { confirm: 'Are you sure?' } %></em>
+
 </div>
 <div class="medium-6 columns">
   <br><br>

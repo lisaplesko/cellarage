@@ -75,6 +75,12 @@ class WinesController < ApplicationController
     end
   end
 
+  def destroy
+    wine = Wine.find(params[:id])
+    wine.destroy
+    redirect_to root_path, notice: 'Wine was successfully removed.'
+  end
+
   private
 
   def wine_params
