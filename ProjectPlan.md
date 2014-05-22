@@ -25,10 +25,12 @@ DONE * User can sort wines by category, occasion, and grape/varietal
 
 
 Nice to have features, if time permits:
+
 * User can choose from the 'recommendations' and add to a saved list of wines to check out/buy later
 * User can view a map of all locations with the regions that their current inventory is from
 * User can receive a list of wines to be consumed NOW based on their recommended drinking age date [Can API do this?]
 * User can share a wine/description/review on Twitter or Facebook to a friend
+* Reviews should show the age of the wine when it was consumed (per review)
 
 
 DATABASES:
