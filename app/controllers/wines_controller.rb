@@ -76,6 +76,8 @@ class WinesController < ApplicationController
   end
 
   def create
+    @vineyard_options = Vineyard.all.map{ |vineyard| [vineyard.name, vineyard.id] }
+    @vineyard = Vineyard.new
     @wine = current_user.wines.new(wine_params)
     if @wine.save
       flash[:notice] = 'Wine successfully added to collection!'
