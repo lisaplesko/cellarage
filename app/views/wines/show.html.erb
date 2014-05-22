@@ -1,75 +1,64 @@
 <br>
 <div class="panel">
 
-<h2><%= @wine.name %></h2>
+  <h2><%= @wine.name %></h2>
 
-<div class="row">
-  <div class="medium-6 columns">
+  <div class="row">
+    <div class="medium-6 columns">
+      <dl>
+        <dt>Vineyard:</dt><dd> <%= @wine.vineyard.name %></dd>
+        <dt>Vintage:</dt><dd> <%= @wine.vintage %> </dd>
+        <dt>Region:</dt><dd> <%= @wine.region %> </dd>
+        <dt>Price:</dt><dd> <%= number_to_currency(@wine.price) %> </dd>
+        <dt>Category:</dt><dd> <%= @wine.category %> </dd>
+        <dt>Grape:</dt><dd> <%= @wine.grape %> </dd>
+        <dt>Occasion:</dt><dd> <%= @wine.occasion %> </dd>
+      </dl>
 
-<dl>
-  <dt>Vineyard:</dt><dd> <%= @wine.vineyard.name %></dd>
-  <dt>Vintage:</dt><dd> <%= @wine.vintage %> </dd>
-  <dt>Region:</dt><dd> <%= @wine.region %> </dd>
-  <dt>Price:</dt><dd> <%= number_to_currency(@wine.price) %> </dd>
-  <dt>Category:</dt><dd> <%= @wine.category %> </dd>
-  <dt>Grape:</dt><dd> <%= @wine.grape %> </dd>
-  <dt>Occasion:</dt><dd> <%= @wine.occasion %> </dd>
-</dl>
+      <em><%= link_to 'Edit wine details', edit_wine_path(@wine) %></em>
 
-<em><%= link_to 'Edit wine details', edit_wine_path(@wine) %></em>
-<br>
-<br>
-<em><%= link_to 'Delete this wine', @wine, method: :delete, data: { confirm: 'Are you sure?' } %></em>
+      <br><br>
 
-</div>
-<div class="medium-6 columns">
-  <br><br>
-  Available to drink: <h3><strong><%= @wine.on_hand %></strong></h3>
-  Consumed: <h3><strong><%= @wine.consumption %></strong></h3>
-  <br><br>
-  <ul class = "button-group round">
-    <li><%= button_to  "Add", upcount_wine_path, class: 'small button secondary' %></li>
-    <li><%= button_to  "Drink", downcount_wine_path, class: 'small button secondary' %></li>
-  </ul>
-  <br><br>
-</div>
-<div class="center">
-<%= link_to "Like this wine? Search for similar wines by #{@wine.vineyard.name}.", search_wine_path(@wine), class: 'button' %>
-</div>
-</div>
+      <em><%= link_to 'Delete this wine', @wine, method: :delete, data: { confirm: 'Are you sure?' } %></em>
 
+    </div>
 
+    <div class="medium-6 columns">
+      <br><br>
+      Available to drink: <h3><strong><%= @wine.on_hand %></strong></h3>
+      Consumed: <h3><strong><%= @wine.consumption %></strong></h3>
+      <br><br>
+      <ul class = "button-group round">
+        <li><%= button_to  "Add", upcount_wine_path, class: 'small button secondary' %></li>
+        <li><%= button_to  "Drink", downcount_wine_path, class: 'small button secondary' %></li>
+      </ul>
+      <br><br>
+    </div>
 
+    <div class="center">
+      <%= link_to "Like this wine? Search for similar wines by #{@wine.vineyard.name}.", search_wine_path(@wine), class: 'button' %>
+    </div>
+  </div>
 
+  <hr>
 
+  <h2>Reviews</h2>
 
-
-
-
-<hr>
-
-<h2>Reviews</h2>
-
-<% @wine.reviews.each do |review| %>
-  <blockquote><%= review.description %></blockquote>
-<% end %>
+  <% @wine.reviews.each do |review| %>
+    <blockquote><%= review.description %></blockquote>
+  <% end %>
 
 </div>
 
 <br>
-
 
 <%= form_for [@wine, @review] do |f| %>
-
   <%= f.label :description, 'Add your review:'  %>
   <%= f.text_area :description  %>
-
   <%= f.submit 'Review' %>
 <% end %>
 
-
-<br>
-<br>
+<br><br>
 
 
 

@@ -15,7 +15,6 @@ class ReviewsController < ApplicationController
   private
 
   # Rating is currently not being used in app; suggest adding to wine#show page.
-
   def review_params
     params.require(:review).permit(:description, :rating)
   end

@@ -4,7 +4,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <title><%= content_for?(:title) ? yield(:title) : "foundation-rails" %></title>
+    <title>Cellarage</title>
 
     <%= stylesheet_link_tag    "application" %>
     <%= javascript_include_tag "vendor/modernizr" %>
@@ -15,88 +15,88 @@
 
   <body>
 
-
-  <div class="hero">
-  <h1>CELLARAGE</h1>
-  </div>
-
-  <nav class="top-bar" data-topbar>
-   <ul class="title-area">
-    <li class="name">
-      <% if user_signed_in? %>
-      <h1><%= link_to "INVENTORY", root_path %></a></h1>
-      <% end %>
-    </li>
-    <li class="toggle-topbar menu-icon"><a href="">Menu</a></li>
-  </ul>
-  <section class="top-bar-section">
-  <% if user_signed_in? %>
-    <ul class="left">
-      <li class="has-dropdown"><a href="#">Categories</a>
-        <ul class="dropdown">
-          <% Wine::CATEGORIES.each do |category| %>
-            <li><%= link_to category, wines_path(category: category) %></li>
-          <% end %>
-        </ul>
-      </li>
-    </ul>
-
-    <ul class="left">
-      <li class="has-dropdown"><a href="#">Varietals</a>
-        <ul class="dropdown">
-          <% Wine::GRAPES.each do |grape| %>
-            <li><%= link_to grape, wines_path(grape: grape) %></li>
-          <% end %>
-        </ul>
-      </li>
-    </ul>
-
-    <ul class="left">
-      <li class="has-dropdown"><a href="#">Occasions</a>
-        <ul class="dropdown">
-          <% Wine::OCCASIONS.each do |occasion| %>
-            <li><%= link_to occasion, wines_path(occasion: occasion) %></li>
-          <% end %>
-        </ul>
-      </li>
-    </ul>
-    <% end %>
-
-    <% if user_signed_in? %>
-      <ul class="right">
-        <li class="has-form"><%= link_to "Logged in as #{current_user.email}"%></li>
-        <li class="divider"></li>
-        <li class="has-form"><%= link_to 'Edit profile', edit_user_registration_path, class: 'button secondary' %></li>
-        <li class="divider"></li>
-        <li class="has-form"><%= link_to "Logout", destroy_user_session_path, method: :delete, class: 'button secondary' %></li>
-      </ul>
-    <% else %>
-      <ul class="right">
-        <li class="has-form"><%= link_to "Sign up", new_user_registration_path, class: 'button secondary' %></li>
-        <li class="divider"></li>
-        <li class="has-form"><%= link_to "Login", new_user_session_path, class: 'button secondary' %></li>
-    <% end %>
-    </ul>
-  </section>
-
-  </nav>
-
-
-
-  <% flash.each do |name, msg| %>
-    <% if msg.is_a?(String) %>
-    <%= content_tag :div, msg, :class => "flash_#{name}" %>
-    <% end %>
-  <% end %>
-
-  <div class="row">
-    <div class="large-12 columns">
-      <%= yield %>
+    <div class="hero">
+      <h1>CELLARAGE</h1>
     </div>
-  </div>
 
-  <%= javascript_include_tag "application" %>
+    <!-- Navigation bar -->
 
+    <nav class="top-bar" data-topbar>
+      <ul class="title-area">
+        <li class="name">
+          <% if user_signed_in? %>
+          <h1><%= link_to "INVENTORY", root_path %></a></h1>
+          <% end %>
+        </li>
+        <li class="toggle-topbar menu-icon"><a href="">Menu</a></li>
+      </ul>
+      <section class="top-bar-section">
+        <% if user_signed_in? %>
+          <ul class="left">
+            <li class="has-dropdown"><a href="#">Categories</a>
+              <ul class="dropdown">
+                <% Wine::CATEGORIES.each do |category| %>
+                  <li><%= link_to category, wines_path(category: category) %></li>
+                <% end %>
+              </ul>
+            </li>
+          </ul>
+
+          <ul class="left">
+            <li class="has-dropdown"><a href="#">Varietals</a>
+              <ul class="dropdown">
+                <% Wine::GRAPES.each do |grape| %>
+                  <li><%= link_to grape, wines_path(grape: grape) %></li>
+                <% end %>
+              </ul>
+            </li>
+          </ul>
+
+          <ul class="left">
+            <li class="has-dropdown"><a href="#">Occasions</a>
+              <ul class="dropdown">
+                <% Wine::OCCASIONS.each do |occasion| %>
+                  <li><%= link_to occasion, wines_path(occasion: occasion) %></li>
+                <% end %>
+              </ul>
+            </li>
+          </ul>
+        <% end %>
+
+        <% if user_signed_in? %>
+          <ul class="right">
+            <li class="has-form"><%= link_to "Logged in as #{current_user.email}"%></li>
+            <li class="divider"></li>
+            <li class="has-form"><%= link_to 'Edit profile', edit_user_registration_path, class: 'button secondary' %></li>
+            <li class="divider"></li>
+            <li class="has-form"><%= link_to "Logout", destroy_user_session_path, method: :delete, class: 'button secondary' %></li>
+          </ul>
+        <!-- Nav bar login buttons if user is not yet signed in -->
+        <% else %>
+          <ul class="right">
+            <li class="has-form"><%= link_to "Sign up", new_user_registration_path, class: 'button secondary' %></li>
+            <li class="divider"></li>
+            <li class="has-form"><%= link_to "Login", new_user_session_path, class: 'button secondary' %></li>
+          </ul>
+        <% end %>
+      </section>
+
+    </nav>
+
+    <div class="row">
+      <div class="large-12 columns">
+        <% flash.each do |name, msg| %>
+          <% if msg.is_a?(String) %>
+            <%= content_tag :div, msg, :class => "flash_#{name}" %>
+          <% end %>
+        <% end %>
+
+        <%= yield %>
+
+      </div>
+    </div>
+
+    <%= javascript_include_tag "application" %>
 
   </body>
 </html>

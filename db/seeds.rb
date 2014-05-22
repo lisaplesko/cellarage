@@ -86,7 +86,7 @@ v16 = Vineyard.create!(name: 'C. Berardenga',address: 'Tuscany, Italy',country: 
 lisa.wines << v2.wines.create!(name: 'Cabernet Sauvignon ',grape: 'Cabernet Sauvignon ',vintage: 2007,region: 'St. Helena', on_hand: 1,category: 'Red',occasion: 'Celebration')
 lisa.wines << v2.wines.create!(name: 'Cabernet Sauvignon, Bella Oaks Vineyard',grape: 'Cabernet Sauvignon',vintage: 2007,region: 'St. Helena', on_hand: 1,category: 'Red',occasion: 'Celebration')
 lisa.wines << v3.wines.create!(name: 'Il Barone',grape: 'Cabernet Sauvignon ',vintage: 2005,region: 'Napa Valley', on_hand: 2,category: 'Red',occasion: 'Nice dinner')
-lisa.wines << v3.wines.create!(name: 'La Castellana',grape: 'Cabernet Blend',vintage: 2005,region: 'Napa Valley', on_hand: 0,category: 'Red',occasion: 'Nice dinner')
+lisa.wines << v3.wines.create!(name: 'La Castellana',grape: 'Cabernet Blend',vintage: 2005,region: 'Napa Valley', on_hand: 3,category: 'Red',occasion: 'Nice dinner')
 lisa.wines << v3.wines.create!(name: 'Il Passito',grape: 'Late Harvest Semillon',vintage: 2006,region: 'Sonoma County', on_hand: 1,category: 'Dessert',occasion: 'Nice dinner')
 lisa.wines << v3.wines.create!(name: 'Il Raggio Del Sole',grape: 'Muscat Canelli',vintage: 2009,region: 'Santa Barbara County', on_hand: 2,category: 'White',occasion: 'Nice dinner')
 lisa.wines << v3.wines.create!(name: 'Gewurztraminer',grape: 'Gewurztraminer',vintage: 2009,region: 'Anderson Valley', on_hand: 1,category: 'White',occasion: 'Nice dinner')

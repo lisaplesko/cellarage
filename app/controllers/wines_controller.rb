@@ -3,6 +3,7 @@ class WinesController < ApplicationController
 
   def index
     if user_signed_in?
+    # Search parameters for sorting wines by type
       @wines = current_user.wines.by_category(params[:category])
       @wines = current_user.wines.by_varietal(params[:grape])
       @wines = current_user.wines.by_occasion(params[:occasion])
@@ -43,7 +44,7 @@ class WinesController < ApplicationController
     redirect_to wine
   end
 
-  # Find current wine, increase on_hand count by 1 for each button press, save.
+  # Find current wine, increase on_hand count by 1 for each click, save.
   def upcount
     wine = Wine.find(params[:id])
     wine.on_hand += 1
@@ -54,6 +55,7 @@ class WinesController < ApplicationController
   # Increases the consumption count by 1 and ALSO decreases on_hand count by 1.
   def downcount
     wine = Wine.find(params[:id])
+    # Verify that user has wine available to drink, if not, produce "no wine" message
     if wine.on_hand >= 1
       wine.on_hand -= 1
       wine.consumption += 1
@@ -70,9 +72,9 @@ class WinesController < ApplicationController
     if @wine.save
       flash[:notice] = 'Wine successfully added to collection!'
       redirect_to root_path
-    # else
-    #   flash.now[:alert] = @wine.errors.full_messages.join(', ')
-    #   render :new
+    else
+      flash.now[:alert] = @wine.errors.full_messages.join(', ')
+      render :new
     end
   end
 
