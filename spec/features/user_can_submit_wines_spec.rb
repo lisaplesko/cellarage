@@ -28,6 +28,15 @@ feature 'User submits a wine' do
     expect(page).to have_content "Vineyard can't be blank"
   end
 
+  scenario 'unsuccessfully due to wine name being blank' do
+    fill_in 'Vineyard Name', with: 'Sokol Blosser'
+    click_button 'Add vineyard'
+    select 'Sokol Blosser', :from => '**Select a winery from the list:'
+    click_button 'Submit'
+
+    expect(page).to have_content "Name can't be blank"
+  end
+
 end
 
 
