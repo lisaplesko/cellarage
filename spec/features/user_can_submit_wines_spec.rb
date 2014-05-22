@@ -1,28 +1,37 @@
 require 'spec_helper'
 
-# feature 'User submits a wine' do
-#   background do
-#     visit root_path
-#     click_link '+'
-#   end
+feature 'User submits a wine' do
+  background do
+    user = User.create(email: 'plesko.l@gmail.com', password: 'password')
+    visit root_path
+    sign_in_as(user)
+    click_link 'Add a new wine to my collection'
+  end
 
-#   scenario 'successfully' do
-#     fill_in 'Name', with: 'Estate Cuvée Pinot Noir'
-#     fill_in 'Vineyard', with: 'Sokol Blosser'
-#     fill_in 'Vintage', with: 2011
-#     fill_in 'Category', with: 'red'
-#     fill_in 'Description', with: 'Our 2011 Estate Cuvée Pinot Noir exhibits notes of ripe raspberry, baking spice and tarragon.'
-#     fill_in 'Grape', with: 'Pinot Noir'
-#     fill_in 'Price', with: 60.0
-#     fill_in 'Occasion', with: 'special event'
-#     click_button 'Submit'
+  scenario 'successfully' do
+    fill_in 'Vineyard Name', with: 'Sokol Blosser'
+    click_button 'Add vineyard'
+    select 'Sokol Blosser', :from => '**Select a winery from the list:'
+    fill_in 'Name', with: 'Estate Cuvée Pinot Noir'
+    fill_in 'Vintage', with: 2011
+    fill_in 'On hand', with: 2
+    fill_in 'Price', with: 60.0
+    click_button 'Submit'
 
-#     expect(page).to have_content 'Wine successfully added to collection!'
-#   end
+    save_and_open_page
+
+    expect(page).to have_content 'Wine successfully added to collection!'
+  end
 
   # scenario 'unsuccessfully due to required fields being blank' do
   #   click_button 'Submit'
   #   expect(page).to have_content "Name can't be blank"
   # end
 
-# end
+end
+
+
+
+# There's a have_select matcher if you use Capybara with Rspec:
+
+# expect(page).to have_select('my-select', selected: 'Option 2')

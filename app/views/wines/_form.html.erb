@@ -1,8 +1,8 @@
 <%= form_for @wine do |f| %>
 
-  <br><br>
+  <br><hr><br><br>
 
-  <p><strong>**Select a winery</strong> from the list:</p>
+  <%= f.label :vineyard_id, '**Select a winery from the list:' %>
   <%= f.select :vineyard_id, @vineyard_options.sort, include_blank: true %>
 
   <br><br>
