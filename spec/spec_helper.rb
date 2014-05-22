@@ -14,6 +14,8 @@ ActiveRecord::Migration.maintain_test_schema!
 
 RSpec.configure do |config|
   include FactoryGirl::Syntax::Methods
+
+  config.include SessionHelpers
   # ## Mock Framework
   #
   # If you prefer to use mocha, flexmock or RR, uncomment the appropriate line:

@@ -18,6 +18,7 @@ gem 'devise'
 gem 'dotenv-rails', :groups => [:development, :test]
 gem 'httparty', '~> 0.13.1'
 gem 'rails_12factor', group: :production
+gem 'will_paginate', '~> 3.0'
 
 
 group :development, :test do

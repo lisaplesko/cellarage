@@ -1,8 +1,12 @@
 class WinesController < ApplicationController
-  before_action :authenticate_user!, except: [:index, :show]
+  before_action :authenticate_user!, except: [:index]
 
   def index
     if user_signed_in?
+    # Unhide the next line if pagination desired for wine results.
+    # Also need to add <%= will_paginate @posts %> to index page.
+      # @wines = Wine.paginate(:page => params[:page], :per_page => 20)
+
     # Search parameters for sorting wines by type
       @wines = current_user.wines.by_category(params[:category])
       @wines = current_user.wines.by_varietal(params[:grape])

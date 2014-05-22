@@ -104,6 +104,38 @@ table td, table th { padding: 9px 10px; text-align: left; height: 30px}
 
 }
 
+// Will_Paginate styling
+
+.flickr_pagination {
+  text-align: center;
+  padding: 0.3em;
+  cursor: default; }
+.flickr_pagination a, .flickr_pagination span, .flickr_pagination em {
+  padding: 0.2em 0.5em; }
+.flickr_pagination .disabled {
+  color: #aaaaaa; }
+.flickr_pagination .current {
+  font-style: normal;
+  font-weight: bold;
+  color: #4F0632; }
+.flickr_pagination a {
+  border: 1px solid #dddddd;
+  color: #2ba6cb;
+  text-decoration: none; }
+.flickr_pagination a:hover, .flickr_pagination a:focus {
+  border-color: #003366;
+  background: #0063dc;
+  color: white; }
+.flickr_pagination .page_info {
+  color: #aaaaaa;
+  padding-top: 0.8em; }
+.flickr_pagination .previous_page, .flickr_pagination .next_page {
+  border-width: 0px; }
+.flickr_pagination .previous_page {
+  margin-right: 1em; }
+.flickr_pagination .next_page {
+  margin-left: 1em; }
+
 
 // This is the default html and body font-size for the base rem value.
 // $rem-base: 16px;
