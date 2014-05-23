@@ -16,6 +16,9 @@ feature 'User submits a wine' do
     fill_in 'Vintage', with: 2011
     fill_in 'On hand', with: 2
     fill_in 'Price', with: 60.0
+    select 'Red', :from => 'Category'
+    select 'Nice dinner', :from => 'Occasion'
+    select 'Cabernet', :from => 'Grape'
     click_button 'Submit'
 
     expect(page).to have_content 'Wine successfully added to collection!'
@@ -42,5 +45,4 @@ end
 
 
 # There's a have_select matcher if you use Capybara with Rspec:
-
 # expect(page).to have_select('my-select', selected: 'Option 2')
