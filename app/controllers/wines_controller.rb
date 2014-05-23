@@ -2,7 +2,7 @@ class WinesController < ApplicationController
   before_action :authenticate_user!, except: [:index, :welcome]
 
   def welcome
-    @wines = Wine.all
+    @wines = current_user.wines.all
   end
 
   def index
@@ -16,22 +16,22 @@ class WinesController < ApplicationController
 
       if query_param.nil?
         # logger.debug "Get all wines"
-        @wines = Wine.all
+        @wines = current_user.wines.all
       else
         # logger.debug "Get wines by #{params}"
-        @wines = Wine.by({query_param.to_sym => params[query_param]})
+        @wines = current_user.wines.by({query_param.to_sym => params[query_param]})
       end
   end
 
   def new
-    @wine = Wine.new
+    @wine = current_user.wines.new
     # Update list of vineyard options based on current inventory
     @vineyard_options = Vineyard.all.map{ |vineyard| [vineyard.name, vineyard.id] }
     @vineyard = Vineyard.new
   end
 
   def show
-    @wine = Wine.find(params[:id])
+    @wine = current_user.wines.find(params[:id])
     @review = @wine.reviews.new
   end
 
@@ -45,19 +45,19 @@ class WinesController < ApplicationController
   end
 
   def edit
-    @wine = Wine.find(params[:id])
+    @wine = current_user.wines.find(params[:id])
     @vineyard_options = Vineyard.all.map{ |vineyard| [vineyard.name, vineyard.id] }
   end
 
   def update
-    wine = Wine.find(params[:id])
+    wine = current_user.wines.find(params[:id])
     wine.update(wine_params)
     redirect_to wine
   end
 
   # Find current wine, increase on_hand count by 1 for each click, save.
   def upcount
-    wine = Wine.find(params[:id])
+    wine = current_user.wines.find(params[:id])
     wine.on_hand += 1
     wine.save
     redirect_to wine
@@ -65,7 +65,7 @@ class WinesController < ApplicationController
 
   # Increases the consumption count by 1 and ALSO decreases on_hand count by 1.
   def downcount
-    wine = Wine.find(params[:id])
+    wine = current_user.wines.find(params[:id])
     # Verify that user has wine available to drink, if not, produce "no wine" message
     if wine.on_hand >= 1
       wine.on_hand -= 1
@@ -92,7 +92,7 @@ class WinesController < ApplicationController
   end
 
   def destroy
-    wine = Wine.find(params[:id])
+    wine = current_user.wines.find(params[:id])
     wine.destroy
     redirect_to root_path, notice: 'Wine was successfully removed.'
   end
