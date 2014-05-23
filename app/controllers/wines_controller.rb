@@ -16,7 +16,7 @@ class WinesController < ApplicationController
 
       if query_param.nil?
         # logger.debug "Get all wines"
-        @wines = current_user.wines.all
+        @wines = current_user.wines.order(:name)
       else
         # logger.debug "Get wines by #{params}"
         @wines = current_user.wines.by({query_param.to_sym => params[query_param]})
