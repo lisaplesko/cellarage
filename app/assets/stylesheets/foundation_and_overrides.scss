@@ -27,10 +27,6 @@
   font-family: 'Montserrat', sans-serif;
 }
 
-.consumed {
-  background-color: #fff6fd;
-}
-
 .dropdown_height {
   line-height: 25px !important;
   padding-top: 0px;
@@ -68,17 +64,6 @@ dd:after {
   text-align: center;
 }
 
-@media (max-width: 800px) {
-  .front_page_image {
-    display: none;
-  }
-
-  .hero h1 {
-  font-size: 40px;
-  font-weight: bold;
-  font-family: 'Montserrat', sans-serif;
-}
-}
 
 // Code for responsive tables from https://github.com/zurb/responsive-tables
 // Also requires responsive-tables.js file
@@ -103,6 +88,15 @@ table td, table th { padding: 9px 10px; text-align: left; height: 30px}
   table.responsive td, table.responsive th { position: relative; white-space: nowrap; overflow: hidden; }
   table.responsive th:first-child, table.responsive td:first-child, table.responsive td:first-child, table.responsive.pinned td { display: none; }
 
+ .front_page_image {
+    display: none;
+  }
+
+  .hero h1 {
+  font-size: 40px;
+  font-weight: bold;
+  font-family: 'Montserrat', sans-serif;
+  }
 }
 
 // Will_Paginate styling
