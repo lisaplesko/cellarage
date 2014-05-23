@@ -54,9 +54,7 @@
         <td><%= wine.grape %></td>
         <td>
           <% if wine.reviews.present? %>
-            <div align="center">
               <%= link_to "#{truncate(wine.reviews.first.description, length: 35)} (#{wine.reviews.count})", wine %>
-            </div>
           <% end %>
         </td>
       </tr>
