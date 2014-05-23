@@ -2,7 +2,7 @@ class WinesController < ApplicationController
   before_action :authenticate_user!, except: [:index, :welcome]
 
   def welcome
-    @wines = current_user.wines.all
+    @wines = Wine.all
   end
 
   def index
