@@ -7,6 +7,18 @@ class VineyardsController < ApplicationController
     redirect_to request.referer
   end
 
+  def edit
+    current_wine = current_user.wines.find(params[:id])
+    @vineyard = current_wine.vineyard
+  end
+
+  def update
+    current_wine = current_user.wines.find(params[:id])
+    vineyard = current_wine.vineyard
+    vineyard.update(vineyard_params)
+    redirect_to current_wine
+  end
+
   private
 
   # Storing address & country for vineyards as a possibility for app expansion

@@ -1,0 +1,34 @@
+<br><br>
+
+<%= form_for @vineyard do |vineyard| %>
+
+  <p>Edit vineyard details below:</p>
+
+  <div class="row collapse">
+    <div class="small-5 columns">
+      <%= vineyard.label :name, 'Vineyard Name', class: 'right inline' %>
+    </div>
+    <div class="small-7 columns">
+      <%= vineyard.text_field :name %>
+    </div>
+  </div>
+
+  <div class="row collapse">
+    <div class="small-2 columns">
+      <%= vineyard.label :address, class: 'right inline' %>
+    </div>
+    <div class="small-4 columns">
+      <%= vineyard.text_field :address %>
+    </div>
+    <div class="small-2 columns">
+      <%= vineyard.label :country, class: 'right inline' %>
+    </div>
+    <div class="small-2 small-4 columns">
+      <%= vineyard.text_field :country %>
+    </div>
+    <div class="medium-1 columns">
+      <%= vineyard.submit 'Update vineyard', class: 'small button right simple' %>
+    </div>
+  </div>
+
+<% end %>

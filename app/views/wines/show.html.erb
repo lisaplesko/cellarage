@@ -2,7 +2,9 @@
 <div class="panel">
 
   <h2><%= @wine.name %></h2>
+  <em><%= link_to 'Edit vineyard', edit_vineyard_path(@wine.vineyard) %></em>
 
+  <br><br>
   <div class="row">
     <div class="medium-6 columns">
       <dl>
