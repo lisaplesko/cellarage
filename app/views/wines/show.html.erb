@@ -2,13 +2,12 @@
 <div class="panel">
 
   <h2><%= @wine.name %></h2>
-  <em><%= link_to 'Edit vineyard', edit_vineyard_path(@wine.vineyard) %></em>
 
   <br><br>
   <div class="row">
     <div class="medium-6 columns">
       <dl>
-        <dt>Vineyard:</dt><dd> <%= @wine.vineyard.name %></dd>
+        <dt>Vineyard:</dt><dd> <%= @wine.vineyard.name %> (<em><%= link_to 'Edit vineyard', edit_vineyard_path(@wine.vineyard) %></em>)</dd>
         <dt>Vintage:</dt><dd> <%= @wine.vintage %> </dd>
         <dt>Region:</dt><dd> <%= @wine.region %> </dd>
         <dt>Price:</dt><dd> <%= number_to_currency(@wine.price) %> </dd>

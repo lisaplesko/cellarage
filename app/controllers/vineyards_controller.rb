@@ -8,15 +8,13 @@ class VineyardsController < ApplicationController
   end
 
   def edit
-    current_wine = current_user.wines.find(params[:id])
-    @vineyard = current_wine.vineyard
+    @vineyard = Vineyard.find(params[:id])
   end
 
   def update
-    current_wine = current_user.wines.find(params[:id])
-    vineyard = current_wine.vineyard
+    vineyard = Vineyard.find(params[:id])
     vineyard.update(vineyard_params)
-    redirect_to current_wine
+    redirect_to :root
   end
 
   private
