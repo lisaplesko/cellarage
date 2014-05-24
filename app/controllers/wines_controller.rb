@@ -21,6 +21,8 @@ class WinesController < ApplicationController
         # logger.debug "Get wines by #{params}"
         @wines = current_user.wines.by({query_param.to_sym => params[query_param]})
       end
+
+      @wines_inventory = current_user.wines.map(&:on_hand).reduce(&:+)
   end
 
   def new
