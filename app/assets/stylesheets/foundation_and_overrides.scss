@@ -92,10 +92,12 @@ table td, table th { padding: 9px 10px; text-align: left; height: 30px}
     display: none;
   }
 
+  .hero {
+  min-height: 150px;
+  }
+
   .hero h1 {
   font-size: 40px;
-  font-weight: bold;
-  font-family: 'Montserrat', sans-serif;
   }
 }
 
