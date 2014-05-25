@@ -3,7 +3,7 @@ Cellarage
 
 Cellarage is a rails app that allows users to track inventory of their wine collections and receive suggestions based on wines they like.
 
-View the app at http://plesko-wine-cellar.heroku.com
+View the app at http://cellarage.herokuapp.com/
 
 Features
 -------
